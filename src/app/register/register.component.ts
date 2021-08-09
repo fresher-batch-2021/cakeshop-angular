@@ -11,18 +11,43 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  name:string="";
-  email:string="";
-  phoneNumber:string="";
-  password:string="";
-  confirmPassword:string="";
+  registerName:string="";
+  registerEmail:string="";
+  registerphoneNumber:string="";
+  registerpassword:string="";
+  registerconfirmPassword:string="";
   register()
   {
      alert("register button clicked");
   
- if(this.name =="" ) 
+ if(this.registerName =="" ) 
  {
-  alert  
+  alert("name cant be blank");
+  }
+  else
+  {
+    if(this.registerEmail =="")
+    {
+      alert("Email cant be blank");
+    }
+    else
+    {
+      if (this.registerphoneNumber.length<10)
+       {
+        alert("please enter the valid number");
+      }
+      else{
+        if (this.registerpassword!=this.registerconfirmPassword)
+         {
+          alert("password does not match");   
+             }
+             else
+             {
+               alert("successfully register");
+             }
+      }
+        
+    }
   }
 
 }
