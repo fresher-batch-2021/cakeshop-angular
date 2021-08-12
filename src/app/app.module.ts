@@ -10,6 +10,14 @@ import { OccasionsComponent } from './occasions/occasions.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { ProductComponent } from './product/product.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { OrdernowComponent } from './ordernow/ordernow.component';
+import { PaymentComponent } from './payment/payment.component';
+import { FooterComponent } from './footer/footer.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { CartComponent } from './cart/cart.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +27,15 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     ForgetpasswordComponent,
     OccasionsComponent,
-    HomeComponent
+    HomeComponent,
+    ProductComponent,
+    PrivacyComponent,
+    OrdernowComponent,
+    PaymentComponent,
+    FooterComponent,
+    ContactusComponent,
+    CartComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,
