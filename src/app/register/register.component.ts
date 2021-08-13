@@ -46,9 +46,9 @@ export class RegisterComponent implements OnInit {
              {
               const regobj = {
                 "registerName": name,
-                "registerEmail": Email,
-                "registermobileNo": mobileNo,
-                "registerpassword": password
+                "registerEmail": this.registerEmail,
+                "registermobileNo":this.registermobileNo,
+                "registerpassword": this.registerpassword
                 
             };
             console.log(regobj);

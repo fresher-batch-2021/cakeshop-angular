@@ -12,10 +12,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-}
+
  
         
-        let slideData =["images/cake6.jpg","images/cake8.jpg","images/cake12.jpg","images/cake13.jpg"];
+        slideData =["assets/images/cake6.jpg","assets/images/cake8.jpg","assets/images/cake12.jpg","assets/images/cake13.jpg"];
 
         
         
@@ -37,8 +37,8 @@ export class HomeComponent implements OnInit {
             
 
             //reset to 1st image
-            if (slideIndex > mySlidesDiv.length) {
-                 slideIndex = 1 
+            if (this.slideIndex > mySlidesDiv.length) {
+                 this.slideIndex = 1 
             }
 
             //display one image at at time
@@ -46,4 +46,5 @@ export class HomeComponent implements OnInit {
 
             setTimeout(this.showSlides, 1200); // Change image every 2 seconds  
         }
+      }
         
