@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import axios from 'axios';
 
 @Component({
   selector: 'app-register',
@@ -13,14 +14,14 @@ export class RegisterComponent implements OnInit {
   }
   registerName:string="";
   registerEmail:string="";
-  registerphoneNumber:string="";
+  registermobileNo:string="";
   registerpassword:string="";
   registerconfirmPassword:string="";
   register()
   {
      alert("register button clicked");
   
- if(this.registerName =="" ) 
+ if(this.registerName ==null||this.registerName.trim() == "" ) 
  {
   alert("name cant be blank");
   }
@@ -32,7 +33,7 @@ export class RegisterComponent implements OnInit {
     }
     else
     {
-      if (this.registerphoneNumber.length<10)
+      if (this.registermobileNo.length<10)
        {
         alert("please enter the valid number");
       }
@@ -43,7 +44,24 @@ export class RegisterComponent implements OnInit {
              }
              else
              {
-               alert("successfully register");
+              const regobj = {
+                "registerName": name,
+                "registerEmail": Email,
+                "registermobileNo": mobileNo,
+                "registerpassword": password
+                
+            };
+            console.log(regobj);
+            const url="https://product-mock-api.herokuapp.com/cakeshopapp/api/v1/auth/register";
+            axios.post(url,regobj).then(res=>{
+                let data=res.data;
+                console.log(data);
+                alert("successfully register");
+                window.location.href = "login.html";
+            } ).catch(err=>{
+                console.error(err);
+                alert("not register");
+            });
              }
       }
         

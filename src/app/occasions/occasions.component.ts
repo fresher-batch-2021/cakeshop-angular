@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import axios from 'axios';
 
 @Component({
   selector: 'app-occasions',
@@ -21,7 +22,7 @@ product() {
   var count = 0;
   const url = "https://product-mock-api.herokuapp.com/cakeshopapp/api/v1/products";//url to get all element from server
   axios.get(url).then(res => {
-    alert("hello"); 
+    alert("hel"); 
 
       console.log(res.data);//to printing in console
       var images = res.data;
@@ -30,8 +31,8 @@ product() {
           
           content = content + `<div class="cakecontainer" id="${img.id}">
           <form action="cart.html">
-          <a href="Product.html?id=${img.id}">
-          <img class="productImg" src="assets/Images/${img.imageUrl}"  id="productImg" alt="img">    
+          <a href="/product?id=${img.id}">
+          <img class="productImg" src="assets/images/${img.imageUrl}"  id="productImg" alt="img">    
           </a>
           <p class="productName" id="productName">${img.productName}</p>
           <p class="productPrice" id="productPrice" >${img.price}</p>
@@ -46,7 +47,7 @@ product() {
           count = 0;
           }
       }
-      let container=(document.querySelector("#productContainer")as HTMLElement).innerHTML=content;
+      (document.querySelector("#container")as HTMLElement).innerHTML=content;
       
   });
 }
@@ -133,3 +134,4 @@ product() {
 // const category = params.get('category');
 // console.log("Selected Category in previous page:" + category);
 // displayCakes(category);
+}

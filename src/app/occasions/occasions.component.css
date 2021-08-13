@@ -1,0 +1,17 @@
+.cakerow{
+    width: 200px;
+    height: 300px;
+    border: 2px solid greenyellow;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 3px 10px 10px 4px;
+    margin-left: 35px;
+    margin-top: 10px;
+}
+.cakeimg{
+    width: 200px;
+    height: 250px;
+    border: 2px solid black;
+    border-radius: 10px;
+    
+}
