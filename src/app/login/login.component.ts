@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import axios from 'axios';
 
 
@@ -9,19 +10,17 @@ import axios from 'axios';
 })
 export class LoginComponent implements OnInit 
 {
- 
-
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
-  LoginEmail:string="";
-  LoginPassword:string="";
+  email:string="";
+  password:string="";
  
   Login()
   {
-     let email=this.LoginEmail;
-     let password=this.LoginPassword;
+     let email=this.email;
+     let password=this.password;
 
      switch(true)
      {
@@ -32,7 +31,7 @@ export class LoginComponent implements OnInit
      }
      case(password.trim()==""):
      {
-       alert("Invalid password");
+       alert("Invalid Password");
        break;
      }
      default:{

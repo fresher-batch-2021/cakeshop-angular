@@ -12,55 +12,49 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  registerName:string="";
-  registerEmail:string="";
-  registermobileNo:string="";
-  registerpassword:string="";
-  registerconfirmPassword:string="";
+  name:string="";
+  email:string="";
+  phoneNumber:string="";
+  password:string="";
+  confirmPassword:string="";
   register()
   {
-     alert("register button clicked");
+     alert("Register Button Clicked");
   
- if(this.registerName ==null||this.registerName.trim() == "" ) 
+ if(this.name ==null||this.name.trim() == "" ) 
  {
-  alert("name cant be blank");
+  alert("Name Cant be Blank");
   }
   else
   {
-    if(this.registerEmail =="")
+    if(this.email =="")
     {
-      alert("Email cant be blank");
+      alert("Email Cant be Blank");
     }
-    else
-    {
-      if (this.registermobileNo.length<10)
-       {
-        alert("please enter the valid number");
-      }
-      else{
-        if (this.registerpassword!=this.registerconfirmPassword)
+      else
+      {
+        if (this.password!=this.confirmPassword)
          {
-          alert("password does not match");   
+          alert("Password Does Not Match");   
              }
              else
              {
-              const regobj = {
-                "registerName": name,
-                "registerEmail": this.registerEmail,
-                "registermobileNo":this.registermobileNo,
-                "registerpassword": this.registerpassword
-                
-            };
-            console.log(regobj);
+              const regObj = {
+                "name": this.name,
+                "email": this.email,
+                "mobileNo": this.phoneNumber,
+                 "password": this.password
+                };
+            console.log(regObj);
             const url="https://product-mock-api.herokuapp.com/cakeshopapp/api/v1/auth/register";
-            axios.post(url,regobj).then(res=>{
+            axios.post(url,regObj).then(res=>{
                 let data=res.data;
                 console.log(data);
-                alert("successfully register");
-                window.location.href = "login.html";
+                alert("Successfully Register");
+                window.location.href = "login()";
             } ).catch(err=>{
                 console.error(err);
-                alert("not register");
+                alert("not Register");
             });
              }
       }
@@ -69,4 +63,4 @@ export class RegisterComponent implements OnInit {
   }
 
 }
-}
+

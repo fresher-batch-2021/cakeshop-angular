@@ -1,16 +1,19 @@
 
-<div class="login">
+<header id="header"></header>
+ <div class="login">
     <h1>welcome to login page</h1><br>
 <form (ngSubmit)="Login()">
-    <label for="loginEmail" >Email</label>
-    <input type="email"  name="loginEmail"id="loginEmail" [(ngModel)]="loginEmail"  placeholder="Enter The Email ID" required>
+    <label for="email" >Email:</label>
+    <input type="email"  name="email"id="email" [(ngModel)]="email"  placeholder="Enter The Email ID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
 
-    <label for="loginPassword">Password</label>
-    <input type="password" name="loginPassword"id="loginPassword"required placeholder="Enter The Password"
-    [(ngModel)]="loginPassword">
+    <label for="password">Password:</label>
+    <input type="password" name="password"id="password" [(ngModel)]="password" placeholder="Please Enter The Password" required >
 
     
     <button class="Submit" type="submit">Submit</button><br><br>
+    
+</form>
+</div>
 
     <script src="Assest/js/jquery.min.js"></script>
     <script src="Assest/js/login.js"></script>
