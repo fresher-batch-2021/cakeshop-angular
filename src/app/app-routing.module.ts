@@ -1,8 +1,10 @@
 import { componentFactoryName, } from "@angular/compiler";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { AdminComponent } from "./admin/admin.component";
 import { CartComponent } from "./cart/cart.component";
 import { ContactusComponent } from "./contactus/contactus.component";
+import { DashboardComponent } from "./dashboard/dashboard.component";
 import { FooterComponent } from "./footer/footer.component";
 
 import { ForgetpasswordComponent } from "./forgetpassword/forgetpassword.component";
@@ -11,10 +13,12 @@ import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
 import { OccasionsComponent } from "./occasions/occasions.component";
 import { OrdernowComponent } from "./ordernow/ordernow.component";
+import { OrdersComponent } from "./orders/orders.component";
 import { PaymentComponent } from "./payment/payment.component";
 import { PrivacyComponent } from "./privacy/privacy.component";
 import { ProductComponent } from "./product/product.component";
 import { RegisterComponent } from "./register/register.component";
+import { UserComponent } from "./user/user.component";
 
 
 const routes: Routes = [
@@ -56,6 +60,21 @@ const routes: Routes = [
      },
      {
          path:'ordernow',component:OrdernowComponent
+     },
+     {
+         path:'adminheader',component:AdminComponent
+     },
+     {
+         path:'user',component:UserComponent
+     },
+     {
+         path:'orders',component:OrdersComponent
+     },
+     {
+         path:'dashboard',component:DashboardComponent
+     },
+     {
+         path:'header',component:HeaderComponent
      },
      {
          path:'',redirectTo:'home',pathMatch:'full'

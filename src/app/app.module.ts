@@ -18,6 +18,12 @@ import { FooterComponent } from './footer/footer.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { CartComponent } from './cart/cart.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminheaderComponent } from './adminheader/adminheader.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProductsComponent } from './products/products.component';
+import { OrdersComponent } from './orders/orders.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,13 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     FooterComponent,
     ContactusComponent,
     CartComponent,
-    AboutusComponent
+    AboutusComponent,
+    AdminComponent,
+    AdminheaderComponent,
+    DashboardComponent,
+    ProductsComponent,
+    OrdersComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

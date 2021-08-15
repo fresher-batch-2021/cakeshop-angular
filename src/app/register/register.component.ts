@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   }
   name:string="";
   email:string="";
-  phoneNumber:string="";
+  phoneNumber:number=0;
   password:string="";
   confirmPassword:string="";
   register()

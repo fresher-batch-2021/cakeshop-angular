@@ -20,7 +20,7 @@ occasions() {
   const url = "https://product-mock-api.herokuapp.com/cakeshopapp/api/v1/products";//url to get all element from postman(server)
   axios.get(url).then(res => {
     // alert("hel"); 
-
+      let data=res.data;
       console.log(res.data);//to printing in console
       var images = res.data;
       let content = "";
@@ -33,7 +33,6 @@ occasions() {
           </a>
           <p >${img.productName}</p>
           <p >${img.price}</p>
-          <p>${img.id}</p>
           <button type="submit" onClick="toCart(${img.id},'${img.productName}','${img.imageUrl}','${img.price}')">add to cart</button>
           </form>
           </div>`;
@@ -54,3 +53,4 @@ occasions() {
 
 
 }
+// <p>${img.i}</p>
