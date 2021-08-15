@@ -19,27 +19,23 @@ export class RegisterComponent implements OnInit {
   confirmPassword:string="";
   register()
   {
-     alert("Register Button Clicked");
+     //alert("Register Button Clicked");
   
  if(this.name ==null||this.name.trim() == "" ) 
  {
   alert("Name Cant be Blank");
   }
-  else
-  {
-    if(this.email =="")
+  else if(this.email =="")
     {
       alert("Email Cant be Blank");
     }
-      else
-      {
-        if (this.password!=this.confirmPassword)
+  else if (this.password!=this.confirmPassword)
          {
           alert("Password Does Not Match");   
              }
              else
              {
-              const regObj = {
+              let regObj = {
                 "name": this.name,
                 "email": this.email,
                 "mobileNo": this.phoneNumber,
@@ -48,19 +44,21 @@ export class RegisterComponent implements OnInit {
             console.log(regObj);
             const url="https://product-mock-api.herokuapp.com/cakeshopapp/api/v1/auth/register";
             axios.post(url,regObj).then(res=>{
-                let data=res.data;
+                const data=res.data;
                 console.log(data);
-                alert("Successfully Register");
+                alert(res.data.message);
+                alert("Successfuly Register")
                 window.location.href = "login()";
             } ).catch(err=>{
-                console.error(err);
-                alert("not Register");
+              console.error(err.response.data);
+              let errorMessage = err.response.data.errorMessage;
+              // alert("Error:" + errorMessage);
             });
              }
       }
         
     }
-  }
+  
 
-}
+
 

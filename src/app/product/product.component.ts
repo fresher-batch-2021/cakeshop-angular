@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import axios from 'axios';
+
 
 @Component({
   selector: 'app-product',
@@ -10,42 +12,46 @@ export class ProductComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.project();
   }
 
+
+ project()
+{
+    
+    
+    // const param=new URLSearchParams(window.location.search.substr(1));
+    // var id = parseInt(param.get("category"));
+    
+     const url=`https://product-mock-api.herokuapp.com/cakeshopapp/api/v1/products`;
+    axios.get(url).then(res =>{
+      //  let cakes=res.data;
+    console.log(res.data);
+    var cakes = res.data;
+    var content="";
+    for(let cake of cakes )
+    {
+    content = content+`
+     <div class="productrow">
+       <a href="product.html?id=${cake.id}">
+        <img class=""src="images/${cake.imageUrl}" alt="img">
+        </a>
+        <p>${cake.productName}</p>
+        <br>
+        <p>${cake.price}</p>
+        <br>
+        <p>product description......</p>
+        <button type="button" onClick="tocart(${cake.id},'${cake.imageUrl}','${cake.productName}',${cake.price})">Add to cart</button>    
+        </div>`;
+    }
+        let container=(document.querySelector("#productcontainer")as HTMLElement).innerHTML=content;
+    }).catch(err=>{
+        
+        alert("failed in getting data");
+    })
+
+
 }
-// function project()
-// {
-//     var content="";
-    
-//     const param=new URLSearchParams(window.location.search.substr(1));
-//     var id = parseInt(param.get("category"));
-    
-//     const url=`https://product-mock-api.herokuapp.com/cakeshopapp/api/v1/products/${id}`;
-//     axios.get(url).then(res =>{
-//         let cakes=res.data;
-
-
-//         content = content+`
-//      <div class="productrow">
-//      <a href="product.html?id=${cakes.id}">
-//         <img class=""src="images/${cakes.imageUrl}" alt="img">
-//         </a>
-//         <p>${cakes.productName}</p>
-//         <br>
-//         <p>${cakes.price}</p>
-//         <br>
-//         <p>product description......</p>
-//         <button type="button" onClick="tocart(${cakes.id},'${cakes.imageUrl}','${cakes.productName}',${cakes.price})">Add to cart</button>
-        
-        
-//         </div>`;
-//         document.querySelector("#productcontainer").innerHTML=content;
-//     }).catch(err=>{
-//         alert("failed in getting data");
-//     })
-
-
-// }
 // project();
 // // {/* <a href="cart.html"><button type="submit">add to cart</button></a> */}
 // // const projects=[{id:4,imageUrl:"choco-Butterscotch.png",name:"cake",price:"220"}];
@@ -78,4 +84,4 @@ export class ProductComponent implements OnInit {
 //     localStorage.setItem("cartElements",JSON.stringify(cartItems));
 //     window.location.href="cart.html";
 
-// }
+}

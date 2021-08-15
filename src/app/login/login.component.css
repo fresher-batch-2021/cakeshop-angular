@@ -1,0 +1,47 @@
+.login
+{
+    margin: 80px 400px 0px 400px;
+    padding: 50px 0px 40px 80px;
+    background-color: #f0efeb;
+    border: solid;
+}
+/* .login h3    
+{
+    padding-right: 50px;
+} */
+/* .login input
+{
+    position: relative;
+    float:right;
+    margin-right: 20px;
+    padding-right: 10px;
+} */
+.login:hover
+{
+    box-shadow: 5px 3px 10px 2px;
+}
+.login a
+{
+  padding-right: 150px;
+  color:blue;
+}
+.Submit
+{
+    padding: 10px;
+    border: none;
+    color: white;
+    border-radius: 50px;
+    background-color: white;
+}
+.login input[type=password],[type=email]
+{
+        margin: 10px 0;
+        padding: 5px 10px; 
+        display: block; 
+        border: 2px solid #D3D3D3; 
+        border-radius: 5px;
+        width: 50%;
+        box-sizing: border-box; 
+        margin-bottom: 20px;
+
+} 

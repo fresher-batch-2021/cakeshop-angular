@@ -35,26 +35,23 @@ export class LoginComponent implements OnInit
        break;
      }
      default:{
-       const loginObj={
+      let url="https://product-mock-api.herokuapp.com/cakeshopapp/api/v1/auth/login";
+       let loginObj={
        "email":email,
        "password":password
       };
-      const url="https://product-mock-api.herokuapp.com/cakeshopapp/api/v1/auth/login";
+      
       console.log(loginObj);
-      axios.post(url).then(res=>{
+      axios.post(url,loginObj).then(res=>{
+        const data=res.data;
          console.log(loginObj);
          alert("successfully logged in");
-         window.location.href
+         window.location.href="home()";
       }).catch(err=>{
         console.log(err.response.data);
-        if (err.response.data.errorMessage)
-         {
-          alert(err.response.data.errorMessage);
-        }
-        else
-        {
-          alert("login failed");
-        }
+        let errormessage=err.response.data.errorMessage;
+         
+          alert("error:"+errormessage); 
       });
      }
     }

@@ -105,7 +105,7 @@ header{
 }
 /* .register end */
 /* login */
-.login
+/* .login
 {
     margin: 80px 400px 0px 400px;
     padding: 50px 0px 40px 80px;
@@ -123,7 +123,7 @@ header{
     margin-right: 20px;
     padding-right: 10px;
 } */
-.login:hover
+/*.login:hover
 {
     box-shadow: 5px 3px 10px 2px;
 }
@@ -151,7 +151,7 @@ header{
         box-sizing: border-box; 
         margin-bottom: 20px;
 
-} 
+}  */
 /* login :end */
 /* forgetpassword */
 .forgetpassword

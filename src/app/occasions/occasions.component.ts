@@ -26,10 +26,10 @@ occasions() {
       let content = "";
       for (let img of images) { 
           
-          content = content + `<div class="cakecontainer" id="${img.id}">
-          <form action="cart.html">
+          content = content + `
+          <div class="cakecontainer" id="${img.id}">
           <a href="/product?id=${img.id}">
-          <img  src="assets/images/${img.imageUrl}"  alt="img">    
+          <img  class="image" src="assets/images/${img.imageUrl}"  alt="img">    
           </a>
           <p >${img.productName}</p>
           <p >${img.price}</p>

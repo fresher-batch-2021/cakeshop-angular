@@ -1,4 +1,4 @@
-.cakerow{
+.cakecontainer{
     width: 200px;
     height: 300px;
     border: 2px solid greenyellow;
@@ -8,22 +8,22 @@
     margin-left: 35px;
     margin-top: 10px;
 }
-.cakeimg{
+.cakecontainer image{
     width: 200px;
     height: 250px;
     border: 2px solid black;
     border-radius: 10px;
     
 }
-.special
+/* .special
 {
-    /* margin-left: 100px; */
+    /* margin-left: 100px; 
     padding-left: 100px;
-}
+} 
 .cakecontainer h3
 {
     padding-left: 36px;
 padding-top: 12px;
 font-size: 22px 
  
-}
+}*/
