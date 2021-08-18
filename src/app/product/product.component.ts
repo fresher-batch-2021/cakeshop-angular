@@ -12,11 +12,11 @@ export class ProductComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.project();
+    this.product();
   }
 
 
- project()
+ product()
 {
     
     
@@ -52,36 +52,5 @@ export class ProductComponent implements OnInit {
 
 
 }
-// project();
-// // {/* <a href="cart.html"><button type="submit">add to cart</button></a> */}
-// // const projects=[{id:4,imageUrl:"choco-Butterscotch.png",name:"cake",price:"220"}];
-// function tocart(id,imageUrl,name,price)
-// {
-//     alert("edward");
-//     let cartItemsStr=localStorage.getItem("cartElements");
-//     let cartItems = cartItemsStr != null ? JSON.parse(cartItemsStr):[];
-//     var qty=1;
-    
-
-    
-//     let index = cartItems.findIndex(cartItems=>cartItems.Id == id);// If item already exist, update the quantity
-//     // alert(index);
-//     console.log(index);
-//     if (index != -1){
-//         let cartObj = cartItems[index];
-//         console.log(cartObj);
-//         cartObj.Qty++;
-//         cartItems[index] = cartObj;
- 
-//     }
-//     else{
-//         // if item not exist, add new item to cart
-//     let cartObj = {Id:id,name:name,price:price,imageUrl:imageUrl,Qty:qty};
-//     console.log(cartObj);
-//     cartItems.push(cartObj);
-//     }
-    
-//     localStorage.setItem("cartElements",JSON.stringify(cartItems));
-//     window.location.href="cart.html";
 
 }

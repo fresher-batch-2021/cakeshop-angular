@@ -19,7 +19,11 @@ export class RegisterComponent implements OnInit {
   confirmPassword:string="";
   register()
   {
-     //alert("Register Button Clicked");
+     
+     const name=this.name;
+     const email=this.email;
+     const password =this.password;
+     const confirm=this.confirmPassword;
   
  if(this.name ==null||this.name.trim() == "" ) 
  {
@@ -42,7 +46,7 @@ export class RegisterComponent implements OnInit {
                  "password": this.password
                 };
             console.log(regObj);
-            const url="https://product-mock-api.herokuapp.com/cakeshopapp/api/v1/auth/register";
+            const url="https://99560248-15e7-4158-bfde-3c13e3ebf4e9-bluemix.cloudantnosqldb.appdomain.cloud/cakeshop_user";
             axios.post(url,regObj).then(res=>{
                 const data=res.data;
                 console.log(data);
