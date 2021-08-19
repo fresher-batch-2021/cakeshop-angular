@@ -1,21 +1,19 @@
 .RegisterContainer
 {
-    border: solid;
+    border: solid black;
     margin: 80px 400px 0px 400px;
     padding: 50px 0px 40px 80px;
     background-color: #f0efeb;    
 }
 .input
 {
-    /* float: right;
-    margin-right: 80px; */
-    
     margin: 10px 0;
     padding: 5px 10px; 
-    display: inline-block; 
-    border: 2px solid #D3D3D3; 
+    display: block; 
+    /* border: 2px solid #D3D3D3;  */
     border-radius: 5px;
     width: 50%;
-    box-sizing: border-box; 
+    /* box-sizing: border-box;  */
     margin-bottom: 20px;
+    
 }

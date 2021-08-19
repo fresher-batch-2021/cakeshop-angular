@@ -70,7 +70,7 @@ header{
 }
 /* navigator :end */
 /* .register */
-.register
+/* .register
 {
     border: solid;
     margin: 80px 400px 0px 400px;
@@ -82,7 +82,7 @@ header{
     /* float: right;
     margin-right: 80px; */
     
-    margin: 10px 0;
+    /* margin: 10px 0;
     padding: 5px 10px; 
     display: block; 
     border: 2px solid #D3D3D3; 
@@ -97,12 +97,12 @@ header{
 .submit
 {
     /* margin-top: 30px; */
-    padding: 10px;
+    /* padding: 10px;
     color: black;
     border: none;
     border-radius: 50px;
     background-color: white;
-}
+} */ 
 /* .register end */
 /* login */
 /* .login

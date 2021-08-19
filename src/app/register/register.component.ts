@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   
   register() {
     // event.preventDefault();
-    alert("hello");
+    // alert("hello");
     // const name =document.getElementById("#registerName");
     const name=this.registerName;
     // const email = document.getElementById("#registerEmail");
