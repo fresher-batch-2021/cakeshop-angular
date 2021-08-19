@@ -12,55 +12,56 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  name:string="";
-  email:string="";
-  phoneNumber:number=0;
-  password:string="";
-  confirmPassword:string="";
-  register()
-  {
-     
-     const name=this.name;
-     const email=this.email;
-     const password =this.password;
-     const confirm=this.confirmPassword;
+  registerName:string="";
+  registerEmail:string="";
+  registerPassword:number=0;
+  registerConfirm:string="";
   
- if(this.name ==null||this.name.trim() == "" ) 
- {
-  alert("Name Cant be Blank");
-  }
-  else if(this.email =="")
-    {
-      alert("Email Cant be Blank");
+  
+  register() {
+    // event.preventDefault();
+    alert("hello");
+    // const name =document.getElementById("#registerName");
+    const name=this.registerName;
+    // const email = document.getElementById("#registerEmail");
+    const email=this.registerEmail;
+    // const password = document.getElementById("#registerPassword");
+    const password =this.registerPassword;
+    // const confirm = document.getElementById("#registerConfirm");
+    const confirm=this.registerConfirm;
+    //if name is valid or not
+    if (this.registerName.trim() == ""||this.registerName==null) {
+        alert("name can't be empty");
     }
-  else if (this.password!=this.confirmPassword)
-         {
-          alert("Password Does Not Match");   
-             }
-             else
-             {
-              let regObj = {
-                "name": this.name,
-                "email": this.email,
-                "mobileNo": this.phoneNumber,
-                 "password": this.password
-                };
-            console.log(regObj);
-            const url="https://99560248-15e7-4158-bfde-3c13e3ebf4e9-bluemix.cloudantnosqldb.appdomain.cloud/cakeshop_user";
-            axios.post(url,regObj).then(res=>{
-                const data=res.data;
-                console.log(data);
-                alert(res.data.message);
-                alert("Successfuly Register")
+    if (password < 8) {
+        alert("password is less than 8 charectors");
+    }
+     
+        else {
+             // backend
+             let registerObj = {
+                "name": name,
+                "email": email,
+                "password": password,
+                "role": "USER"
+            };
+
+        console.log(registerObj); //for printing in console 
+
+      const url = "https://product-mock-api.herokuapp.com/giftshopapp/api/v1/auth/register";//registration url
+      axios.post(url, registerObj).then(res => {
+
+                console.log(res);//printing in console // for user purpose
+                alert("Registration is succesful");
                 window.location.href = "login()";
-            } ).catch(err=>{
-              console.error(err.response.data);
-              let errorMessage = err.response.data.errorMessage;
-              // alert("Error:" + errorMessage);
+            }).catch(err => {
+                console.error(err);
+                alert("Unable to register");
             });
-             }
-      }
-        
+
+        }
+    }
+    
     }
   
 

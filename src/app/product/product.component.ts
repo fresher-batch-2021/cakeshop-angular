@@ -34,7 +34,7 @@ export class ProductComponent implements OnInit {
     content = content+`
      <div class="productrow">
        <a href="product.html?id=${cake.id}">
-        <img class=""src="images/${cake.imageUrl}" alt="img">
+        <img class=""src="assets/images/${cake.imageUrl}" alt="img">
         </a>
         <p>${cake.productName}</p>
         <br>

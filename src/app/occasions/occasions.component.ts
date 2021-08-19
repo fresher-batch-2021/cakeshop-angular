@@ -1,19 +1,18 @@
-// import { Component, OnInit } from '@angular/core';
-// import axios from 'axios';
-// import { url } from 'inspector';
+import { Component, OnInit } from '@angular/core';
+import axios from 'axios';
 
-// @Component({
-//   selector: 'app-occasions',
-//   templateUrl: './occasions.component.html',
-//   styleUrls: ['./occasions.component.css']
-// })
-// export class OccasionsComponent implements OnInit {
+@Component({
+  selector: 'app-occasions',
+  templateUrl: './occasions.component.html',
+  styleUrls: ['./occasions.component.css']
+})
+export class OccasionsComponent implements OnInit {
 
-//   constructor() { }
+  constructor() { }
 
-//   ngOnInit(): void {
-//     this.displayCakes();//to call a function using typescript
-//   }
+  ngOnInit(): void {
+    // this.displayCakes();//to call a function using typescript
+  }}
 // // getting data from server
 // displayCakes(category,cakeItems) {
 //   let count = 0;
