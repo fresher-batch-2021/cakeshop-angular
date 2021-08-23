@@ -1,36 +1,34 @@
-<table>
-    <Caption>user credentials</Caption>
+
+<table border=1>
+
     <thead>
         <tr>
             <td>s.no</td>
             <td>image_url</td>
-            <td>product name</td>
+            <td>product Name</td>
             <td>price</td>
-            <td>description</td>
-            <td>product id</td>
+            <td>product Id</td>
             <td>Delete</td>
         </tr>
     </thead>
-    <tbody *ngFor='let product of products; let i=index'>
+
+    <tbody *ngFor='let cake of cakes; let i=index'>
+
         <tr>
             <td>{{i+1}}</td>
-            
-            <td>
-            <figure>
-            <img src='{{"assets/Images/"+product.imageUrl}}' alt="">
-            
-            </figure>
-            <figcaption>hello</figcaption>
-            </td>
-            
-            <td>{{product.name}}</td>
-            <td>{{product.price}}</td>
-            <td>{{product.description}}</td>
-            <td>{{product.id}}</td>
-            <!-- <td><button (click)="delete(product._id,product._rev)">delete product</button></td> -->
-            
+
+              <td><img src="assets/images/{{cake.imageUrl}}"  /></td>
+              
+              
+
+            <td>{{cake.productName}}</td>
+            <td>{{cake.price}}</td>
+            <td>{{cake.id}}</td>
+            <td><button (click)="delete(cake._id,cake._rev)">delete cakes</button></td>
+
+
         </tr>
     </tbody>
-    <button routerLink='../add-product'>add product</button>
+    <button type="button" routerLink='/addproduct'>add cakes</button>
 
 </table>

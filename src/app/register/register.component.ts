@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   }
   registerName:string="";
   registerEmail:string="";
-  registerPassword:number=0;
+  registerPassword:string="";
   registerConfirm:string="";
   
   
@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
     if (this.registerName.trim() == ""||this.registerName==null) {
         alert("name can't be empty");
     }
-    if (password < 8) {
+    if (this.registerPassword.length < 8) {
         alert("password is less than 8 charectors");
     }
      

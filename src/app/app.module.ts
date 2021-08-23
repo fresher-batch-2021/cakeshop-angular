@@ -10,7 +10,6 @@ import { OccasionsComponent } from './occasions/occasions.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
-import { ProductComponent } from './product/product.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { OrdernowComponent } from './ordernow/ordernow.component';
 import { PaymentComponent } from './payment/payment.component';
@@ -24,6 +23,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductsComponent } from './products/products.component';
 import { OrdersComponent } from './orders/orders.component';
 import { UserComponent } from './user/user.component';
+import { AddProductsComponent } from './addproducts/addproducts.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +35,6 @@ import { UserComponent } from './user/user.component';
     ForgetpasswordComponent,
     OccasionsComponent,
     HomeComponent,
-    ProductComponent,
     PrivacyComponent,
     OrdernowComponent,
     PaymentComponent,
@@ -47,7 +47,8 @@ import { UserComponent } from './user/user.component';
     DashboardComponent,
     ProductsComponent,
     OrdersComponent,
-    UserComponent
+    UserComponent,
+    AddProductsComponent
   ],
   imports: [
     BrowserModule,

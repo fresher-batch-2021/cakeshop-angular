@@ -1,6 +1,7 @@
 import { componentFactoryName, } from "@angular/compiler";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { AddProductsComponent } from "./addproducts/addproducts.component";
 import { AdminComponent } from "./admin/admin.component";
 import { CartComponent } from "./cart/cart.component";
 import { ContactusComponent } from "./contactus/contactus.component";
@@ -16,7 +17,7 @@ import { OrdernowComponent } from "./ordernow/ordernow.component";
 import { OrdersComponent } from "./orders/orders.component";
 import { PaymentComponent } from "./payment/payment.component";
 import { PrivacyComponent } from "./privacy/privacy.component";
-import { ProductComponent } from "./product/product.component";
+import { ProductsComponent } from "./products/products.component";
 import { RegisterComponent } from "./register/register.component";
 import { UserComponent } from "./user/user.component";
 
@@ -56,9 +57,6 @@ const routes: Routes = [
          path:'privacy',component:PrivacyComponent
      },
      {
-         path:'product',component:ProductComponent
-     },
-     {
          path:'ordernow',component:OrdernowComponent
      },
      {
@@ -77,8 +75,15 @@ const routes: Routes = [
          path:'header',component:HeaderComponent
      },
      {
+         path:'products',component:ProductsComponent
+     },
+     {
+        path:'addProducts',component:AddProductsComponent
+    },
+     {
          path:'',redirectTo:'home',pathMatch:'full'
      }
+     
 ];
 
 @NgModule({
