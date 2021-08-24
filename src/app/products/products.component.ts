@@ -31,7 +31,7 @@ export class ProductsComponent implements OnInit {
     if (cfm) {
 
       this.productService.deleteData(id, rev).then(res => {
-        alert("Successfully deleted");
+        
         window.location.reload();
       }).catch(err => {
         console.log(err.message.response);

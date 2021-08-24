@@ -16,12 +16,14 @@ export class AddProductsComponent implements OnInit {
     productName :"",
     price: 0,
     imageUrl :"",
-    quantity: 1
+    quantity: 0
   }
 
 
-  addProduct(){
-console.log(this.product);
+  addProduct()
+  {
+   console.log(this.product);
+  //  let productName=this.productName;
   }
 
 }

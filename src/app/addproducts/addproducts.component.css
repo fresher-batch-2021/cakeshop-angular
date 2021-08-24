@@ -1,15 +1,12 @@
-.register
+.addProductContainer
 {
     border: solid;
     margin: 80px 400px 0px 400px;
     padding: 50px 0px 40px 80px;
     background-color: #f0efeb;    
 }
-.register input
+.addProductContainer input[type=text],[type=number],[type=file],[type=number]
 {
-    /* float: right;
-    margin-right: 80px; */
-    
     margin: 10px 0;
     padding: 5px 10px; 
     display: block; 
