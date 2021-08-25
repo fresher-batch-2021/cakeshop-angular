@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import axios from 'axios';
 
 @Injectable({
   providedIn: 'root'
@@ -11,4 +12,9 @@ myUrl="https://99560248-15e7-4158-bfde-3c13e3ebf4e9-bluemix.cloudantnosqldb.appd
 
 
   constructor() { }
+  async getAllProducts(){
+    const url=this.myUrl+"_all_docs?include_docs=true";
+    const products:any = await axios.get(url,{headers:{Authorization: this.basicAuth}});
+    return products.data.rows.map((obj:any)=> obj.doc);
+}
 }
