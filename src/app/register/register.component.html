@@ -8,21 +8,21 @@
     
         <form (ngSubmit)="register()">
             <div class="input">
-                <label for="registerName" title="Name" >Name:</label>
-                <input type="text" [(ngModel)]="registerName" required autocomplete="off" name="registerName" id="registerName" placeholder="Enter Your Name">
+                <label for="name" title="Name" >Name:</label>
+                <input type="text" [(ngModel)]="name" required autocomplete="off" name="name" id="registerName" pattern="[A-Za-z]{1,32}" placeholder="Enter Your Name">
             </div>  
             <div input="input"> 
-                <label for="registerEmail" title="email">Email:</label>
-                    <input type="email" [(ngModel)]="registerEmail" required autocomplete="off" id="registerEmail" name="registerEmail" placeholder="Enter Your Email ID">
+                <label for="email" title="email">Email:</label>
+                    <input type="email" [(ngModel)]="email" required autocomplete="off" id="email" name="email" pattern="[a-z0-9]+@[a-z]+.[a-z]{1,32}$" placeholder="Enter Your Email ID">
                </div>    
                <div class="input">           
-                <label for="registerPassword" title="password">Password:</label>
-                <input type="password" [(ngModel)]="registerPassword" required autocomplete="off" id="registerPassword" name="registerPassword" placeholder="Enter New Password">
+                <label for="password" title="password">Password:</label>
+                <input type="password" [(ngModel)]="password" required autocomplete="off" id="password" name="registerPassword" placeholder="Enter New Password">
                 
             </div>
             <div class="input">
-                <label for="registerConfirm" title="confirm">Confirm Password:</label>
-                <input type="password" required [(ngModel)]="registerConfirm" autocomplete="off" id="registerConfirm" name="registerConfirm" placeholder="Enter The Password Again">
+                <label for="confirm" title="confirm">Confirm Password:</label>
+                <input type="password" required [(ngModel)]="confirm" autocomplete="off" id="confirm" name="confirm" placeholder="Enter The Password Again">
                 
             </div>
             <button type="submit">Register</button>

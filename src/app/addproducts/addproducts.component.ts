@@ -9,58 +9,73 @@ import { ProductService } from '../product.service';
 })
 export class AddProductsComponent implements OnInit {
 
-  constructor(private validator:ValidationService) { }
+  constructor(private validator:ValidationService ,private productService:ProductService) { }
   productName:string="";
-productPrice:number=0;
-productImage:any;
-productQuantity:number=0;
+price:number=0;
+imageUrl:any;
+category:string="";
+quantity:number=0;
 
 
   ngOnInit(): void {
+  }
+  onFileUpload(event:any)
+  {
+    this.imageUrl=event.target.files[0].name;
   }
 
   product = {
     productName :"",
     price: 0,
     imageUrl :"",
+    category:"",
     quantity: 0
   }
+  
 
 
   addProduct()
   {
-   
    let name=this.productName;
-   let price=this.productPrice;
-   let image=this.productImage;
-   let quantity=this.productQuantity;
+   let price=this.price;
+   let imageUrl=this.imageUrl;
+   let category=this.category;
+   let quantity=this.quantity;
+   
    try
    {
      this.validator.ValidateName(name,"Enter your name")
-     let productObj={
-       name=name,
-       price=price,
-       imageUrl=image,
-       quantity=quantity
+     let productObj:any={
+       productName:name,
+       price:price,
+       imageUrl:imageUrl,
+       category:category,
+       quantity:quantity
      };
-     addProduct.addDatas(productObj).then(res=>
+     alert("hii");
+     this.productService.addDatas(productObj)
+     .then((res:any)=>
       {
         let data=res.data;
         console.log(data);
         alert("working");
-     }).catch(err=>
+     }).catch((err:any)=>
       {
         console.log(err.response.message);
         alert("error");
 
       });
-      catch(err)
+    
+      
+    }
+    catch{(err:any)=>
       {
         console.log(err.message);
         alert(err.message.response);
         alert("cant add products");
-      }
-   }
+      }}
+   
   }
-
 }
+
+

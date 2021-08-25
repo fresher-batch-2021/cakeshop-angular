@@ -1,1 +1,32 @@
-<p>orders works!</p>
+<table border=1>
+    <thead>
+        <tr>
+            <td>No.</td>
+            <td>Customer Name</td>
+            <td>Phone Number</td>
+            <td>Address</td>
+            <td>Ordered Date</td>
+            <td>Delivery Date</td>
+            <td>Total Amount</td>
+            <td>Payment</td>
+            <td>Status</td>
+        </tr>
+    </thead>
+
+    <tbody *ngFor="let order of orders ; let i=index">
+        <tr>
+            <td>{{i+1}}</td>
+            <td>{{order.name}}</td>
+            <td>{{order.phoneNumber}}</td>
+            <td>{{order.address}}</td>
+            <td>{{order.orderedDate}}</td>
+            <td>{{order.deliveryDate}}</td>
+            <td>{{order.totalAmount}}</td>
+            <td>{{order.payment}}</td>
+            <td>{{order.status}}</td>
+            
+            <button type="button"></button>
+        </tr>
+    </tbody>
+</table>
+

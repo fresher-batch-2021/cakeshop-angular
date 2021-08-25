@@ -12,32 +12,41 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  registerName:string="";
-  registerEmail:string="";
-  registerPassword:string="";
-  registerConfirm:string="";
+  name:string="";
+  email:string="";
+  password:string="";
+  confirm:string="";
   
   
   register() {
-    // event.preventDefault();
-    // alert("hello");
-    // const name =document.getElementById("#registerName");
-    const name=this.registerName;
-    // const email = document.getElementById("#registerEmail");
-    const email=this.registerEmail;
-    // const password = document.getElementById("#registerPassword");
-    const password =this.registerPassword;
-    // const confirm = document.getElementById("#registerConfirm");
-    const confirm=this.registerConfirm;
-    //if name is valid or not
-    if (this.registerName.trim() == ""||this.registerName==null) {
-        alert("name can't be empty");
+    
+    let name=this.name;
+
+    let email=this.email;
+
+    let password =this.  password;
+    
+    let confirm=this.confirm;
+    
+    switch(true)
+    {
+        case (name.trim() == ""||name==null):
+        {
+         alert("name can't be empty");
+         break;
     }
-    if (this.registerPassword.length < 8) {
-        alert("password is less than 8 charectors");
+    case (email.trim()==""||email==null):
+    {
+    
+        alert("Email can't be empty");
+        break;
     }
-     
-        else {
+    case (password.length < 8):
+    {
+        alert("password is less than 8 charactors");
+        break;
+    }
+     default:{
              // backend
              let registerObj = {
                 "name": name,
@@ -62,6 +71,7 @@ export class RegisterComponent implements OnInit {
         }
     }
     
+}
     }
   
 

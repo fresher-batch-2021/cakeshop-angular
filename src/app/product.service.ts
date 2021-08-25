@@ -13,12 +13,11 @@ basicAuth = "Basic " + btoa(this.dbUsername + ":" + this.dbPassword);
 myUrl="https://99560248-15e7-4158-bfde-3c13e3ebf4e9-bluemix.cloudantnosqldb.appdomain.cloud/cakeshop_cakes/";
 
   constructor() { }
-
-
-  addDatas(productObj:string)
+  addDatas(productObj:any)
   {
-    const url=this.myUrl+productObj;
-    return axios.post(url,{headers:{Authorization:this.basicAuth}});
+    
+    const url=this.myUrl;
+    return axios.post(url,productObj,{headers:{Authorization:this.basicAuth}});
   }
 
   getProducts()

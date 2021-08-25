@@ -7,16 +7,19 @@
             
         <form (ngSubmit)="addProduct()">
             
+            
             <label for="productName">Product Name</label>
-            <input type="text" name="productName" [(ngModel)]="product.productName" id="productName"> <br>
+            <input type="text" name="productName" [(ngModel)]="productName" id="productName"> <br>
             <label for="price">price</label>
-            <input type="number" name="price" id="price" [(ngModel)]="product.price"> <br>
+            <input type="number" name="price" id="price" [(ngModel)]="price"> <br>
             <label for="image">Images</label>
-            <input type="file" name="image" id="image" [(ngModel)]="product.imageUrl"> <br>
-            <label for="productQuantity">ProductQuantity</label>
-            <input type="number" name="quantity" id="quantity" [(ngModel)]="product.quantity">
+            <input type="file" (change)="onFileUpload($event)"name="image" id="image" [(ngModel)]="imageUrl"> <br>
+            <label for="category">Category</label>
+            <input type="text" name="category" id="category" [(ngModel)]="category">
+            <label for="quantity">ProductQuantity</label>
+            <input type="number" name="quantity" id="quantity" [(ngModel)]="quantity">
 
-            <button type="button">Add Product</button>
+            <button type="button" (click)='addProduct()'>Add Product</button>
         
         </form>
     </div>
