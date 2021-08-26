@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-orders',
@@ -8,27 +8,35 @@ import { ProductService } from '../product.service';
 })
 
 export class OrdersComponent implements OnInit {
-  orders:any;
-  constructor() { }
+  orders: any;
+  constructor(private Adminservice: AdminService) { }
 
   ngOnInit(): void {
     this.order();
   }
-  order()
-  {
-     let data=ProductService.getProducts();
-     data.res((res:any)=>
-     {
-       let data=res.data.rows;
-       let values=data.map((obj:any)=>obj.doc);
-       console.log(this.orders);
-       this.orders=values;
-       console.log(values);
-    )}.catch((err:any)=>
-      {
-         console.log(err.response.message);
-         
-         
-      })
+  order() {
+    try {
+      let data = this.Adminservice.getAllProducts();
+      data.then((res: any) => {
+        let data = res.data.rows;
+        let value = data.map((obj: any) => obj.doc);
+        console.log(this.orders);
+        this.orders = value;
+        console.log(value);
 
-     };
+      }).catch ((err: any) => {
+        console.log(err.response.message);
+
+      });
+    }
+    catch {
+      (err: any) => {
+        console.log(err.message);
+        alert(err.message.response);
+        alert("cant add products");
+      }
+    }
+  }
+
+}
+

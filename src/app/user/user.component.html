@@ -1,1 +1,23 @@
-<p>user works!</p>
+<table border=1>
+    <caption>CAKES</caption>
+    <thead>
+        <tr>
+            <td>s.no</td>
+            <td>Name</td>
+            <td>email</td>
+            <td>orderedDate</td>
+            
+
+        </tr>
+    </thead>
+    <tbody *ngFor="let userObj of users ; let i=index">
+        <tr>
+            <td>{{i+1}}</td>
+            <td>{{userObj.Name}}</td>
+            <td>{{userObj.email}}</td>
+            <td>{{userObj.orderedDate}}</td>
+            
+        </tr>
+
+    </tbody>
+</table>

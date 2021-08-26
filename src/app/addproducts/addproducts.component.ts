@@ -52,7 +52,7 @@ quantity:number=0;
        category:category,
        quantity:quantity
      };
-     alert("hii");
+     
      this.productService.addDatas(productObj)
      .then((res:any)=>
       {
