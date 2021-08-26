@@ -5,6 +5,7 @@
             <td>s.no</td>
             <td>Name</td>
             <td>email</td>
+            <td>phoneNumber</td>
             <td>orderedDate</td>
             
 
@@ -13,8 +14,9 @@
     <tbody *ngFor="let userObj of users ; let i=index">
         <tr>
             <td>{{i+1}}</td>
-            <td>{{userObj.Name}}</td>
+            <td>{{userObj.name}}</td>
             <td>{{userObj.email}}</td>
+            <td>{{userObj.mobileNo}}</td>
             <td>{{userObj.orderedDate}}</td>
             
         </tr>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { UserService } from '../user.service';
 export class UserComponent implements OnInit {
 
   users:any;
-  constructor(private Userservice:UserService) { }
+  constructor(private Userservice:UserService,private route:Router) { }
 
   ngOnInit(): void {
     this.allUsers();
@@ -19,11 +20,11 @@ allUsers()
 {
  try
  {
-   let data=this.Userservice.userData();
-   data.then((res:any)=>
+   this.Userservice.userData().then((res:any)=>
    {
      console.log(res.data);
-     this.users=res.data;
+     let data=res.data.rows;
+     this.users=data.map((obj:any)=>obj.doc);
 
    }).catch((err:any)=>
    {
