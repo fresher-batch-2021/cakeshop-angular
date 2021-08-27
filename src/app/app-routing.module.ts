@@ -6,6 +6,7 @@ import { AdminComponent } from "./admin/admin.component";
 import { CartComponent } from "./cart/cart.component";
 import { ContactusComponent } from "./contactus/contactus.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
+import { EditComponent } from "./edit/edit.component";
 import { FooterComponent } from "./footer/footer.component";
 
 import { ForgetpasswordComponent } from "./forgetpassword/forgetpassword.component";
@@ -79,6 +80,9 @@ const routes: Routes = [
      },
      {
         path:'addProducts',component:AddProductsComponent
+    },
+    {
+        path:'edit/:id',component:EditComponent
     },
      {
          path:'',redirectTo:'home',pathMatch:'full'

@@ -26,6 +26,18 @@ myUrl="https://99560248-15e7-4158-bfde-3c13e3ebf4e9-bluemix.cloudantnosqldb.appd
       return axios.get(url,{headers:{Authorization:this.basicAuth}});
     
   }
+
+  getProduct(id:string)
+  {
+      const url=this.myUrl+"/"+ id ;
+      return axios.get(url,{headers:{Authorization:this.basicAuth}});
+    
+  }
+
+  updateProduct(productObj:any){
+    const url=this.myUrl +"/" + productObj._id;
+    return axios.put(url,productObj,{headers:{Authorization:this.basicAuth}});
+  }
   deleteData(id:string,rev:string)
   {
     const url=this.myUrl+'/'+id+'?rev='+rev;

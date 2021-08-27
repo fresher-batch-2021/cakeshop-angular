@@ -3,10 +3,11 @@
         <tr>
             <td>No.</td>
             <td>Customer Name</td>
+            <td>Email</td>
             <td>Phone Number</td>
             <td>Address</td>
             <td>Ordered Date</td>
-            <td>Delivery Date</td>
+            
             <td>Total Amount</td>
             <td>Payment</td>
             <td>Status</td>
@@ -16,16 +17,17 @@
     <tbody *ngFor="let order of orders ; let i=index">
         <tr>
             <td>{{i+1}}</td>
-            <td>{{order.productName}}</td>
-            <td>{{order.price}}</td>
-            <td>{{order.category}}</td>
-            <td>{{order.imageUrl}}</td>
-            <!-- <td>{{order.deliveryDate}}</td>
+            <td>{{order.name}}</td>
+            <td>{{order.email}}</td>
+            <td>{{order.mobileNo}}</td>
+            <td>{{order.address}}</td>
+            <td>{{order.date}}</td>
+        
             <td>{{order.totalAmount}}</td>
             <td>{{order.payment}}</td>
-            <td>{{order.status}}</td> -->
+            <td>{{order.status}}</td> 
             
-            <button type="button" >ordered</button>
+            <!-- <button type="button" >ordered</button> -->
         </tr>
     </tbody>
 </table>

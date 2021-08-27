@@ -16,7 +16,7 @@ export class OrdersComponent implements OnInit {
   }
   order() {
     try {
-      let data = this.Adminservice.getAllProducts();
+      let data = this.Adminservice.getAllOrders();
       data.then((res: any) => {
         let datas = res.data.rows;
         let value = datas.map((obj: any) => obj.doc);

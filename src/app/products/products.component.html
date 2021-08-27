@@ -3,11 +3,11 @@
 
     <thead>
         <tr>
-            <td>s.no</td>
-            <td>image_url</td>
-            <td>product Name</td>
-            <td>price</td>
-            <td>product Id</td>
+            <td>S.no</td>
+            <td>Image</td>
+            <td>Product Name</td>
+            <td>Price</td>
+            <td>Edit</td>
             <td>Delete</td>
         </tr>
     </thead>
@@ -23,12 +23,12 @@
 
             <td>{{cake.productName}}</td>
             <td>{{cake.price}}</td>
-            <td>{{cake.id}}</td>
+            <td><a routerLink='../edit/{{cake._id}}'>Edit</a></td>
             <td><button (click)="delete(cake._id,cake._rev)">delete cakes</button></td>
 
 
         </tr>
     </tbody>
-    <button type="button" routerLink='../addProducts'>add cakes</button>
+    
 
 </table>
