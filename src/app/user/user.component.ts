@@ -10,6 +10,8 @@ import { UserService } from '../user.service';
 export class UserComponent implements OnInit {
 
   users:any;
+  id:any;
+  rev:any;
   constructor(private Userservice:UserService,private route:Router) { }
 
   ngOnInit(): void {
@@ -38,5 +40,19 @@ catch{
     alert("cant add products");
 }
  }
+ 
 }
+delete(id:any,rev: any) {
+  let cfm = confirm("Do you want to delete ?");
+  if (cfm) {
+
+    this.Userservice.deleteData(id, rev).then(res => {
+      
+      window.location.reload();
+    }).catch(err => {
+      console.log(err.message.response);
+    });
+
+  }
+ }
 }

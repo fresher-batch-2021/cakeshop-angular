@@ -17,13 +17,16 @@
            <label  for="image">Image</label>
             <input type="file"(change)="onFileUpload($event)" id="file" name="image" [(ngModel)]="product.imageUrl"
                 autocomplete="off">
-            <label for="category">category</label>
-                <select name="category" id="category" multiple [(ngModel)]="product.category">
+            <div>     
+                <label for="category">Category</label>         
+                  <select name="category" id="category" multiple [(ngModel)]="product.category">
                     <option value="Anniversary">Anniversary</option>
                     <option value="WeddingCakes">Wedding Cake</option>
                     <option value="Birthday">Birthday</option>
                     <option value="Lovable">Lovable</option>
-                  </select><br>
+                  </select>
+                </div>
+
 
                 <label  for="quantity">Quantity:</label>
             <input  type="number" name="quantity" id="quantity" [(ngModel)]="product.quantity"

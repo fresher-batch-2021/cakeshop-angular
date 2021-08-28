@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import axios from 'axios';
+import { LoginService } from '../login.service';
 
 
 @Component({
@@ -10,15 +11,16 @@ import axios from 'axios';
 })
 export class LoginComponent implements OnInit 
 {
-  constructor(private router:Router) { }
+  constructor(private router:Router,private loginService:LoginService) { }
 
   ngOnInit(): void {
   }
-  email:string="";
-  password:string="";
+  email:any;
+  password:any;
  
   Login()
   {
+    
      let email=this.email;
      let password=this.password;
 
@@ -35,26 +37,22 @@ export class LoginComponent implements OnInit
        break;
      }
      default:{
-      let url="https://product-mock-api.herokuapp.com/cakeshopapp/api/v1/auth/login";
-       let loginObj={
-       "email":email,
-       "password":password
-      };
-      
-      console.log(loginObj);
-      axios.post(url,loginObj).then(res=>{
-        const data=res.data;
-         console.log(loginObj);
-         alert("successfully logged in");
-         window.location.href="home()";
-      }).catch(err=>{
-        console.log(err.response.data);
-        let errormessage=err.response.data.errorMessage;
-         
-          alert("error:"+errormessage); 
+     
+      this.loginService.login(email,password).then((res:any)=>{
+        let data=res.data.docs[0];
+        console.log(data)
+        if(data.role=="ADMIN"){
+          this.router.navigate(['products']);
+        }
+        else{
+          this.router.navigate(['login'])
+        }
       });
+      
+    
      }
     }
   }
+
 
 }

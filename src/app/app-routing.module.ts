@@ -85,7 +85,7 @@ const routes: Routes = [
         path:'edit/:id',component:EditComponent
     },
      {
-         path:'',redirectTo:'home',pathMatch:'full'
+         path:'',redirectTo:'login',pathMatch:'full'
      }
      
 ];

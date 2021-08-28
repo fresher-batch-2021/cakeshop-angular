@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AdminService } from '../admin.service';
 
 export class OrdersComponent implements OnInit {
   orders: any;
-  constructor(private Adminservice: AdminService) { }
+  constructor(private Adminservice: AdminService,private route:Router) { }
 
   ngOnInit(): void {
     this.order();
@@ -38,6 +39,15 @@ export class OrdersComponent implements OnInit {
       }
     }
   }
+  update(productObj:any)
+  {
+    productObj.status="DELIVERED";
+    this.Adminservice.status(productObj).then((res:any)=>
+     {
+      this.route.navigate(['/orders'])
+     })
+  }
+  
 
 }
 

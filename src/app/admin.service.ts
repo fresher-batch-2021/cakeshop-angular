@@ -25,4 +25,11 @@ getAllOrders()
   return  axios.get(url,{headers:{Authorization:basicAuth}});
   
 }
+status(productObj:any)
+{
+  const url=myUrl+"cakeshop_orders"+productObj._id;;
+  return  axios.put(url,productObj,{headers:{Authorization:basicAuth}});
+  
+}
+
 }

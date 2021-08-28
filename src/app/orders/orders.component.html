@@ -5,12 +5,13 @@
             <td>Customer Name</td>
             <td>Email</td>
             <td>Phone Number</td>
+            <td>Cake Flavour</td>
             <td>Address</td>
             <td>Ordered Date</td>
-            
             <td>Total Amount</td>
             <td>Payment</td>
             <td>Status</td>
+            <td>Process</td>
         </tr>
     </thead>
 
@@ -20,14 +21,15 @@
             <td>{{order.name}}</td>
             <td>{{order.email}}</td>
             <td>{{order.mobileNo}}</td>
+            <td>{{order.products[0].name}}</td>
             <td>{{order.address}}</td>
             <td>{{order.date}}</td>
-        
             <td>{{order.totalAmount}}</td>
             <td>{{order.payment}}</td>
             <td>{{order.status}}</td> 
+            <td><button (click)='update(order)'>Change</button></td>
             
-            <!-- <button type="button" >ordered</button> -->
+            
         </tr>
     </tbody>
 </table>
