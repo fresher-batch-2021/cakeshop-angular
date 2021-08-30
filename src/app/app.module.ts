@@ -9,7 +9,7 @@ import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.compone
 import { OccasionsComponent } from './occasions/occasions.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { OrdernowComponent } from './ordernow/ordernow.component';
 import { PaymentComponent } from './payment/payment.component';
@@ -55,7 +55,8 @@ import { EditComponent } from './edit/edit.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

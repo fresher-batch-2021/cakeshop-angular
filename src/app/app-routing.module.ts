@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AddProductsComponent } from "./addproducts/addproducts.component";
 import { AdminComponent } from "./admin/admin.component";
+import { AuthGuard } from "./auth.guard";
 import { CartComponent } from "./cart/cart.component";
 import { ContactusComponent } from "./contactus/contactus.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
@@ -64,25 +65,25 @@ const routes: Routes = [
          path:'adminheader',component:AdminComponent
      },
      {
-         path:'user',component:UserComponent
+         path:'user',component:UserComponent,canActivate:[AuthGuard]
      },
      {
-         path:'orders',component:OrdersComponent
+         path:'orders',component:OrdersComponent,canActivate:[AuthGuard]
      },
      {
-         path:'dashboard',component:DashboardComponent
+         path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]
      },
      {
          path:'header',component:HeaderComponent
      },
      {
-         path:'products',component:ProductsComponent
+         path:'products',component:ProductsComponent,canActivate:[AuthGuard]
      },
      {
-        path:'addProducts',component:AddProductsComponent
+        path:'addProducts',component:AddProductsComponent ,canActivate:[AuthGuard]
     },
     {
-        path:'edit/:id',component:EditComponent
+        path:'edit/:id',component:EditComponent,canActivate:[AuthGuard]
     },
      {
          path:'',redirectTo:'login',pathMatch:'full'

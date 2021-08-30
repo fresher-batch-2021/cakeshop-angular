@@ -15,13 +15,14 @@ export class LoginService {
   constructor() { }
 
   
-  login(email:any,password:any){
+  login(email:any,password:any, role:string){
     let loginObj={
       selector:{
     email:email,
-    password:password
-   },
-   fields:["role"]
+    password:password,
+    role:role
+   }
+   
   };
   return axios.post(this.myUrl,loginObj,{headers:{Authorization:this.basicAuth}});
   }
