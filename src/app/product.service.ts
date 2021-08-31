@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 
@@ -12,36 +13,36 @@ dbPassword = "85e4a7e36372ac1e47c80f4b81a78d62";
 basicAuth = "Basic " + btoa(this.dbUsername + ":" + this.dbPassword);
 myUrl="https://99560248-15e7-4158-bfde-3c13e3ebf4e9-bluemix.cloudantnosqldb.appdomain.cloud/cakeshop_cakes/";
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
   addDatas(productObj:any)
   {
     
     const url=this.myUrl;
-    return axios.post(url,productObj,{headers:{Authorization:this.basicAuth}});
+    return this.http.post(url,productObj,{headers:{Authorization:this.basicAuth}});
   }
 
   getProducts()
   {
       const url=this.myUrl+"_all_docs?include_docs=true";
-      return axios.get(url,{headers:{Authorization:this.basicAuth}});
+      return this.http.get(url,{headers:{Authorization:this.basicAuth}});
     
   }
 
   getProduct(id:string)
   {
       const url=this.myUrl+"/"+ id ;
-      return axios.get(url,{headers:{Authorization:this.basicAuth}});
+      return this.http.get(url,{headers:{Authorization:this.basicAuth}});
     
   }
 
   updateProduct(productObj:any){
     const url=this.myUrl +"/" + productObj._id;
-    return axios.put(url,productObj,{headers:{Authorization:this.basicAuth}});
+    return this.http.put(url,productObj,{headers:{Authorization:this.basicAuth}});
   }
   deleteData(id:string,rev:string)
   {
     const url=this.myUrl+'/'+id+'?rev='+rev;
-    return axios.delete(url,{headers:{Authorization: this.basicAuth}});
+    return this.http.delete(url,{headers:{Authorization: this.basicAuth}});
   }
 
 }

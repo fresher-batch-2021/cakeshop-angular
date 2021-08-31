@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 
@@ -11,21 +12,24 @@ export class OrderService {
   basicAuth = "Basic " + btoa(this.dbUsername + ":" + this.dbPassword);
   myUrl="https://99560248-15e7-4158-bfde-3c13e3ebf4e9-bluemix.cloudantnosqldb.appdomain.cloud/cakeshop_orders/";
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
   getAllOrders()
   {
     const url=this.myUrl+"_all_docs?include_docs=true";
-    return axios.get(url,{headers:{authorization:this.basicAuth}});
+    return this.http.get(url,{headers:{authorization:this.basicAuth}});
   }
+  
   getOrder(id:string)
   {
     const url=this.myUrl+id;
-    return axios.get(url,{headers:{authorization:this.basicAuth}});
+    return this.http.get(url,{headers:{authorization:this.basicAuth}});
 }
+
+
 updateOrder(orderObj:string)
   {
     const url=this.myUrl+orderObj;
-    return axios.get(url,{headers:{authorization:this.basicAuth}});
+    return this.http.get(url,{headers:{authorization:this.basicAuth}});
 }
 
 }

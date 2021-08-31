@@ -22,13 +22,13 @@ allUsers()
 {
  try
  {
-   this.Userservice.userData().then((res:any)=>
+   this.Userservice.userData().subscribe((res:any)=>
    {
      console.log(res.data);
-     let data=res.data.rows;
+     let data=res.rows;
      this.users=data.map((obj:any)=>obj.doc);
 
-   }).catch((err:any)=>
+   },(err:any)=>
    {
    console.log(err.response.message);
   });
@@ -46,10 +46,10 @@ delete(id:any,rev: any) {
   let cfm = confirm("Do you want to delete ?");
   if (cfm) {
 
-    this.Userservice.deleteData(id, rev).then(res => {
+    this.Userservice.deleteData(id, rev).subscribe(res => {
       
       window.location.reload();
-    }).catch(err => {
+    },(err:any) => {
       console.log(err.message.response);
     });
 

@@ -26,7 +26,7 @@ import { UserComponent } from './user/user.component';
 import { AddProductsComponent } from './addproducts/addproducts.component';
 import { EditComponent } from './edit/edit.component';
 import { GoogleChartsModule } from 'angular-google-charts';
-
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -58,7 +58,8 @@ import { GoogleChartsModule } from 'angular-google-charts';
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    GoogleChartsModule.forRoot()
+    GoogleChartsModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

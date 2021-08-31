@@ -54,12 +54,12 @@ quantity:number=0;
      };
      
      this.productService.addDatas(productObj)
-     .then((res:any)=>
+     .subscribe((res:any)=>
       {
         let data=res.data;
         console.log(data);
-        alert("working");
-     }).catch((err:any)=>
+        // alert("working");
+     },(err:any)=>
       {
         console.log(err.response.message);
         alert("error");

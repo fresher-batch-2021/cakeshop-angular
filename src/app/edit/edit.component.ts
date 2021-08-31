@@ -32,9 +32,10 @@ export class EditComponent implements OnInit {
   product: any;
 
   getProduct() {
-    this.productService.getProduct(this.id).then((res: any) => {
+    this.productService.getProduct(this.id).subscribe((res: any) => {
       console.log(res);
-      this.product = res.data;
+      this.product = res;
+      console.log(res)
     });
   }
 
@@ -45,8 +46,9 @@ export class EditComponent implements OnInit {
       this.validator.ValidateName(this.product.productName, "Enter your name")
       console.log(this.product)
       this.productService.updateProduct(this.product)
-        .then((res: any) => {
-          let data = res.data;
+        .subscribe((res: any) => {
+          let data = res;
+          console.log(res)
           alert("Updated ")
 
         });

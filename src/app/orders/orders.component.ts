@@ -18,14 +18,14 @@ export class OrdersComponent implements OnInit {
   order() {
     try {
       let data = this.Adminservice.getAllOrders();
-      data.then((res: any) => {
-        let datas = res.data.rows;
+      data.subscribe((res: any) => {
+        let datas = res.rows;
         let value = datas.map((obj: any) => obj.doc);
         console.log(this.orders);
         this.orders = value;
         console.log(value);
 
-      }).catch ((err: any) => {
+      },(err: any) => {
         alert("error")
         console.log(err.response.message);
 
@@ -42,7 +42,7 @@ export class OrdersComponent implements OnInit {
   update(productObj:any)
   {
     productObj.status="DELIVERED";
-    this.Adminservice.status(productObj).then((res:any)=>
+    this.Adminservice.status(productObj).subscribe((res:any)=>
      {
       this.route.navigate(['/orders'])
      })

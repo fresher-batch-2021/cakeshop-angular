@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 
@@ -12,7 +13,7 @@ export class LoginService {
   myUrl="https://99560248-15e7-4158-bfde-3c13e3ebf4e9-bluemix.cloudantnosqldb.appdomain.cloud/cakeshop_user/_find";
 
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   
   login(email:any,password:any, role:string){
@@ -24,6 +25,6 @@ export class LoginService {
    }
    
   };
-  return axios.post(this.myUrl,loginObj,{headers:{Authorization:this.basicAuth}});
+  return this.http.post(this.myUrl,loginObj,{headers:{Authorization:this.basicAuth}});
   }
 }

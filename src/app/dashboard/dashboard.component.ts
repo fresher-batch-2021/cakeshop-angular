@@ -19,8 +19,8 @@ export class DashboardComponent implements OnInit {
   orders: any;
   amount: any;
   dashBoard() {
-    this.OrderService.getAllOrders().then((res: any) => {
-      let data = res.data.rows.map((obj: any) => obj.doc);
+    this.OrderService.getAllOrders().subscribe((res: any) => {
+      let data = res.rows.map((obj: any) => obj.doc);
       console.log(data);
       
     });
@@ -63,8 +63,8 @@ export class DashboardComponent implements OnInit {
   }
 
   orderChart() {
-    this.OrderService.getAllOrders().then((res: any) => {
-      let orders = res.data.rows.map ((obj:any)=> obj.doc);
+    this.OrderService.getAllOrders().subscribe((res: any) => {
+      let orders = res.rows.map ((obj:any)=> obj.doc);
       console.table(orders);
       
       this.prepareRevenueChartData(orders);

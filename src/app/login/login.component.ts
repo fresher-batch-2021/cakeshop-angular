@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
     else {
 
       const role = "ADMIN";
-      this.loginService.login(email, password, role).then((res: any) => {
+      this.loginService.login(email, password, role).subscribe((res: any) => {
         console.log(res.data);
         let data = res.data.docs[0];
         console.log(data)
