@@ -30,12 +30,12 @@ export class RegisterComponent implements OnInit {
     
     switch(true)
     {
-        case (name.trim() == ""||name==null):
+        case (name==null):
         {
          alert("name can't be empty");
          break;
     }
-    case (email.trim()==""||email==null):
+    case (email==null):
     {
     
         alert("Email can't be empty");

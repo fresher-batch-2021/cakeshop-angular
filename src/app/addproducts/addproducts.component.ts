@@ -73,7 +73,7 @@ quantity:number=0;
         console.log(err.message);
         alert(err.message.response);
         alert("cant add products");
-      }};
+      }}
    
   }
 }

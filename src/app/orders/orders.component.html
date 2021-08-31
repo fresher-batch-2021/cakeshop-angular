@@ -1,4 +1,6 @@
-<table border=1>
+<app-adminheader></app-adminheader>
+
+<table class="table-content">
     <caption>CUSTOMER ORDER DETIALS</caption>
     <thead>
         <tr>
@@ -28,7 +30,7 @@
             <td>{{order.totalAmount}}</td>
             <td>{{order.payment}}</td>
             <td>{{order.status}}</td> 
-            <td><button (click)='update(order)'>Change</button></td>
+            <td><button (click)='update(order)' *ngIf="order.status!='CANCELLED'">Delivered</button></td>
             
             
         </tr>

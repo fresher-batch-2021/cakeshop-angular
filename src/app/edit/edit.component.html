@@ -1,4 +1,4 @@
-
+<app-adminheader></app-adminheader>
 <div class='cake-container'>
     <h1 >Edit Cakes</h1> <br>
 
@@ -14,9 +14,9 @@
             <input  type="number" name="Price" id="price" [(ngModel)]="product.price"
                 autocomplete="off">
 
-           <label  for="image">Image</label>
+           <!-- <label  for="image">Image</label>
             <input type="file"(change)="onFileUpload($event)" id="file" name="image" [(ngModel)]="product.imageUrl"
-                autocomplete="off">
+                autocomplete="off"> -->
             <div>     
                 <label for="category">Category</label>         
                   <select name="category" id="category" multiple [(ngModel)]="product.category">

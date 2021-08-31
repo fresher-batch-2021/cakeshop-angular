@@ -25,6 +25,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { UserComponent } from './user/user.component';
 import { AddProductsComponent } from './addproducts/addproducts.component';
 import { EditComponent } from './edit/edit.component';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { EditComponent } from './edit/edit.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GoogleChartsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
