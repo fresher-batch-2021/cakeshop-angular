@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ValidationService } from '../validation.service';
 import { ProductService } from '../product.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-addproducts',
@@ -9,7 +10,7 @@ import { ProductService } from '../product.service';
 })
 export class AddProductsComponent implements OnInit {
 
-  constructor(private validator:ValidationService ,private productService:ProductService) { }
+  constructor(private validator:ValidationService ,private productService:ProductService,private toastr:ToastrService) { }
   productName:string="";
 price:number=0;
 imageUrl:any;
@@ -58,11 +59,11 @@ quantity:number=0;
       {
         let data=res.data;
         console.log(data);
-        // alert("working");
+        this.toastr.success("Item is Added ");
      },(err:any)=>
       {
         console.log(err.response.message);
-        alert("error");
+        this.toastr.error("Item is not Added ");
 
       });
     
@@ -72,7 +73,7 @@ quantity:number=0;
       {
         console.log(err.message);
         alert(err.message.response);
-        alert("cant add products");
+        this.toastr.error("cant add products");
       }}
    
   }

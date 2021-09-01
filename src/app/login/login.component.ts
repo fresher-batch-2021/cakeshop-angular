@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import axios from 'axios';
+import { ToastrService } from 'ngx-toastr';
 import { LoginService } from '../login.service';
 import { ValidationService } from '../validation.service';
 
@@ -17,8 +18,9 @@ export class LoginComponent implements OnInit {
   loginForm : FormGroup;
 
   constructor(private router: Router, private loginService: LoginService,
-    private fb : FormBuilder) 
+    private fb : FormBuilder, private toastr: ToastrService) 
     { 
+      
       this.loginForm = this.fb.group({
         email : new FormControl("", Validators.required),
         password : new FormControl('', Validators.required)
@@ -40,7 +42,7 @@ export class LoginComponent implements OnInit {
   password: any;
 
   Login() {
-
+    
     console.log("forms value", this.loginForm.value);
     // console.log(this.Login());
 
@@ -48,11 +50,11 @@ export class LoginComponent implements OnInit {
     let password = this.password;
 
     if (email == "") {
-      alert("Invalid emailId");
+      this.toastr.error("Invalid emailId");
 
     }
     else if (password == "") {
-      alert("Invalid Password");
+      this.toastr.error("Invalid Password");
 
     }
     else {
@@ -60,8 +62,8 @@ export class LoginComponent implements OnInit {
       const role = "ADMIN";
       this.loginService.login(email, password, role).subscribe((res: any) => {
         console.log(res.data);
-        let data = res.data.docs[0];
-        console.log(data)
+        let data = res.docs[0];
+        console.log(data);
         localStorage.setItem('LOGGED_IN_USER', JSON.stringify(data))
 
       
@@ -70,7 +72,7 @@ export class LoginComponent implements OnInit {
         let user = userStr != null ? JSON.parse(userStr) : null;
         // let loginStatus=localStorage.setItem(loggedIn);
         if (user.role == "ADMIN") {
-        
+          this.toastr.success("Successfully Logged In");
           this.router.navigate(['products']);
         }
         else {

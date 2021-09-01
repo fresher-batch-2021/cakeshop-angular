@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 import { Observable } from 'rxjs';
 
@@ -7,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private route:Router){}
+  constructor(private route:Router,private toastr:ToastrService){}
   getGuard(key:string)
   {
      let guard=localStorage.getItem(key);
@@ -29,7 +30,7 @@ export class AuthGuard implements CanActivate {
             return true;
           }
           else{
-            alert("You are not authorized to access Admin Portal");            
+            this.toastr.success("You are not authorized to access Admin Portal");            
             this.route.navigate(['/login']);
           }        
       }

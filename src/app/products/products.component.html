@@ -24,8 +24,8 @@
 
             <td>{{cake.productName}}</td>
             <td>{{cake.price}}</td>
-            <td><button type="button"><a routerLink='../edit/{{cake._id}}'>Edit</a></button></td>
-            <td><button (click)="delete(cake._id,cake._rev)">Delete Cakes</button></td>
+            <td><button class="btn btn-warning" type="button"><a routerLink='../edit/{{cake._id}}'>Edit</a></button></td>
+            <td><button class="btn btn-danger" (click)="delete(cake._id,cake._rev)">Delete Cakes</button></td>
 
 
         </tr>

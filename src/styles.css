@@ -1,7 +1,12 @@
+@import '~ngx-toastr/toastr';
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap');
+@import url('https://project-themes.netlify.app/boot-theme/style.css');
 *{
     margin: 0;
     padding: 0;
+}
+body{
+    background-color: #FFFFFF;
 }
 .index img
 {
@@ -19,7 +24,7 @@ header{
      top: 0;  
 }
 .navbar{
-    height: 80px;
+    height: 100px;
     background-color: #f0efeb;
    
 }
@@ -30,6 +35,7 @@ header{
     float: left;
 }
 .navbar h1{
+    display: inline-block;
     padding-top: 25px;
     padding-right: 25px;
     width: 400px;

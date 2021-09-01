@@ -1,12 +1,12 @@
 <app-adminheader></app-adminheader>
 <!-- <button type="button" routerLink='../addProducts'>add cakes</button> -->
 
-{{revenueData | json}}
-{{productData | json}}
+<!-- {{revenueData | json}} -->
+<!-- {{productData | json}} -->
 <main>
    <div class="page" *ngIf="revenueData.length>0">
       <div>
-          <google-chart class="chart" [type]="myType" [data]="revenueData" [options]="rowChartOptions"></google-chart>8
+          <google-chart class="chart" [type]="myType" [data]="revenueData" [options]="rowChartOptions"></google-chart>
       </div>
       
       <!-- <div>

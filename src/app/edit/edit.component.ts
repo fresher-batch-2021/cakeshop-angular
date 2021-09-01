@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validator } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ProductService } from '../product.service';
 import { ValidationService } from '../validation.service';
 
@@ -12,7 +13,7 @@ import { ValidationService } from '../validation.service';
 export class EditComponent implements OnInit {
 
   id: string;
-  constructor(private route: ActivatedRoute, private validator: ValidationService, private productService: ProductService) {
+  constructor(private route: ActivatedRoute, private validator: ValidationService, private productService: ProductService, private toastr: ToastrService) {
     this.id = this.route.snapshot.params["id"];
   }
   productName: string = "";
@@ -49,13 +50,13 @@ export class EditComponent implements OnInit {
         .subscribe((res: any) => {
           let data = res;
           console.log(res)
-          alert("Updated ")
+          this.toastr.success("Item is Updated ")
 
         });
     }
     catch (err) {
       console.error(err);
-      alert("Updated Failed ")
+      this.toastr.error("Updated Failed ")
     }
 
   }

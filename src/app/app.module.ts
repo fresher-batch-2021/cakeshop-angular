@@ -26,7 +26,10 @@ import { UserComponent } from './user/user.component';
 import { AddProductsComponent } from './addproducts/addproducts.component';
 import { EditComponent } from './edit/edit.component';
 import { GoogleChartsModule } from 'angular-google-charts';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -56,10 +59,12 @@ import { HttpClientModule } from '@angular/common/http'
   imports: [
     BrowserModule,
     FormsModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     GoogleChartsModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ProductService } from '../product.service';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,private toastr:ToastrService) { }
 
   cakes: any;
 
@@ -31,10 +32,15 @@ export class ProductsComponent implements OnInit {
     if (cfm) {
 
       this.productService.deleteData(id, rev).subscribe(res => {
+        this.toastr.success("Item is Deleted")
+        setTimeout(function()
+        {
+          window.location.reload();
+        },3000);
         
-        window.location.reload();
       },(err:any) => {
         console.log(err.message.response);
+        this.toastr.error("Unable to delete the item");
       });
 
     }
