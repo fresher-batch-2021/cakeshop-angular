@@ -4,10 +4,13 @@
     <h1>welcome to login page</h1><br>
 <form  [formGroup]="loginForm" (ngSubmit)="Login()">
     <label for="email" >Email:</label>
-    <input type="email" formControlName="email"  name="email"id="email" [(ngModel)]="email"  placeholder="Enter The Email ID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+    <input type="email" formControlName="email" 
+     name="email"id="email"  placeholder="Enter The Email ID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
 
     <label for="password">Password:</label>
-    <input type="password" formControlName="password" name="password"id="password" [(ngModel)]="password" placeholder="Please Enter The Password" required >
+    <input type="password"
+     formControlName="password" name="password"
+     id="password" placeholder="Please Enter The Password" required >
 
     <button type="submit" [disabled]="!loginForm.valid">Submit</button>
 

@@ -24,7 +24,10 @@
             <td>{{order.name}}</td>
             <td>{{order.email}}</td>
             <td>{{order.mobileNo}}</td>
-            <td>{{order.products[0].name}}</td>
+            <td>
+                <ul>
+                    <li *ngFor="let item of order.products">{{item.name}}</li>
+                </ul></td>
             <td>{{order.address}}</td>
             <td>{{order.date|date:"dd-MM-yyyy"}}</td>
             <td>{{order.totalAmount}}</td>

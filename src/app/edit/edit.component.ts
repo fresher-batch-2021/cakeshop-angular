@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Validator } from '@angular/forms';
+import { FormBuilder, FormControl, FormControlName, FormGroup, Validator, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ProductService } from '../product.service';
@@ -12,9 +12,12 @@ import { ValidationService } from '../validation.service';
 })
 export class EditComponent implements OnInit {
 
+  editForm! : FormGroup
+
   id: string;
-  constructor(private route: ActivatedRoute, private validator: ValidationService, private productService: ProductService, private toastr: ToastrService) {
+  constructor(private route: ActivatedRoute, private validator: ValidationService, private productService: ProductService, private toastr: ToastrService,private fb:FormBuilder) {
     this.id = this.route.snapshot.params["id"];
+   
   }
   productName: string = "";
   price: number = 0;
@@ -23,6 +26,13 @@ export class EditComponent implements OnInit {
   quantity: number = 0;
 
   ngOnInit(): void {
+    this.editForm=this.fb.group({
+      productName:new FormControl("",Validators.required),
+      imageUrl:new FormControl("",Validators.required),
+      price:new FormControl("",Validators.required),
+      category:new FormControl("",Validators.required),
+      quantity:new FormControl("",Validators.required)
+    })
     this.getProduct();
   }
 
@@ -35,7 +45,10 @@ export class EditComponent implements OnInit {
   getProduct() {
     this.productService.getProduct(this.id).subscribe((res: any) => {
       console.log(res);
+      
       this.product = res;
+      this.editForm.patchValue(this.product)
+      
       console.log(res)
     });
   }
@@ -44,9 +57,11 @@ export class EditComponent implements OnInit {
 
 
     try {
-      this.validator.ValidateName(this.product.productName, "Enter your name")
-      console.log(this.product)
-      this.productService.updateProduct(this.product)
+      // this.validator.ValidateName(this.product.productName, "Enter your name")
+      // console.log(this.product)
+      let productObj = this.editForm.value;
+      console.log(productObj);
+      this.productService.updateProduct(productObj)
         .subscribe((res: any) => {
           let data = res;
           console.log(res)

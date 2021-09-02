@@ -38,29 +38,15 @@ export class LoginComponent implements OnInit {
     }
 
   }
-  email: any;
-  password: any;
 
   Login() {
     
+    let user = this.loginForm.value;
     console.log("forms value", this.loginForm.value);
     // console.log(this.Login());
 
-    let email = this.email;
-    let password = this.password;
-
-    if (email == "") {
-      this.toastr.error("Invalid emailId");
-
-    }
-    else if (password == "") {
-      this.toastr.error("Invalid Password");
-
-    }
-    else {
-
       const role = "ADMIN";
-      this.loginService.login(email, password, role).subscribe((res: any) => {
+      this.loginService.login(user.email, user.password, role).subscribe((res: any) => {
         console.log(res.data);
         let data = res.docs[0];
         console.log(data);
@@ -72,8 +58,11 @@ export class LoginComponent implements OnInit {
         let user = userStr != null ? JSON.parse(userStr) : null;
         // let loginStatus=localStorage.setItem(loggedIn);
         if (user.role == "ADMIN") {
-          this.toastr.success("Successfully Logged In");
-          this.router.navigate(['products']);
+          this.toastr.success("Welcome Admin");
+          setTimeout(() => {
+            this.router.navigate(['products']);
+          }, 100);
+         
         }
         else {
           this.router.navigate(['login'])
@@ -81,7 +70,7 @@ export class LoginComponent implements OnInit {
       });
 
 
-    }
+    
   }
 }
 

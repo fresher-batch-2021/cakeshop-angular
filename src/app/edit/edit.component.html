@@ -3,23 +3,22 @@
     <h1 >Edit Cakes</h1> <br>
 
 
-    <form (ngSubmit)="edit()" *ngIf="product">
+    <form [formGroup]="editForm" (ngSubmit)="edit()" *ngIf="product">
 
 
             <label for="productName">Product Name:</label>
-            <input  type="text" name="productName" id="productName" [(ngModel)]="product.productName"
+            <input  type="text" formControlName="productName" name="productName" id="productName" 
+            
                 autocomplete="off">
     
             <label for="Price">Price:</label>
-            <input  type="number" name="Price" id="price" [(ngModel)]="product.price"
+            <input  type="number"formControlName="price" name="Price" id="price"
                 autocomplete="off">
 
-           <!-- <label  for="image">Image</label>
-            <input type="file"(change)="onFileUpload($event)" id="file" name="image" [(ngModel)]="product.imageUrl"
-                autocomplete="off"> -->
+          
             <div>     
                 <label for="category">Category</label>         
-                  <select name="category" id="category" multiple [(ngModel)]="product.category">
+                  <select name="category" id="category" multiple formControlName="category" >
                     <option value="Anniversary">Anniversary</option>
                     <option value="WeddingCakes">Wedding Cake</option>
                     <option value="Birthday">Birthday</option>
@@ -29,15 +28,12 @@
 
 
                 <label  for="quantity">Quantity:</label>
-            <input  type="number" name="quantity" id="quantity" [(ngModel)]="product.quantity"
+            <input  type="number" formControlName = "quantity"name="quantity" id="quantity" 
+            
                 autocomplete="off">
 
-                
-           
-        
-
-        <div>
-            <button type="button" (click)='edit()'>Update</button>
+            <div>
+            <button type="submit" [disabled]="!editForm.valid">Update</button>
 
         </div>
 
