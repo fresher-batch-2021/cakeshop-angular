@@ -12,7 +12,7 @@ export class UserComponent implements OnInit {
   users:any;
   id:any;
   rev:any;
-  constructor(private Userservice:UserService,private route:Router) { }
+  constructor(private userService:UserService,private route:Router) { }
 
   ngOnInit(): void {
     this.allUsers();
@@ -22,17 +22,24 @@ allUsers()
 {
  try
  {
-   this.Userservice.userData().subscribe((res:any)=>
+   
+    
+     
+   
+   this.userService.userData().subscribe((res:any)=>
    {
      console.log(res.data);
      let data=res.rows;
-     this.users=data.map((obj:any)=>obj.doc);
+     let allUsers =data.map((obj:any)=>obj.doc);
+     this.users = allUsers.filter( (obj:any)=> obj.role=='USER')
+
 
    },(err:any)=>
    {
    console.log(err.response.message);
   });
 }
+
 catch{
   (err: any) => {
     console.log(err.message);
@@ -42,17 +49,17 @@ catch{
  }
  
 }
-delete(id:any,rev: any) {
-  let cfm = confirm("Do you want to delete ?");
-  if (cfm) {
+// delete(id:any,rev: any) {
+//   let cfm = confirm("Do you want to delete ?");
+//   if (cfm) {
 
-    this.Userservice.deleteData(id, rev).subscribe(res => {
+//     this.Userservice.deleteData(id, rev).subscribe(res => {
       
-      window.location.reload();
-    },(err:any) => {
-      console.log(err.message.response);
-    });
+//       window.location.reload();
+//     },(err:any) => {
+//       console.log(err.message.response);
+//     });
 
-  }
- }
+//   }
+//  }
 }
