@@ -26,9 +26,10 @@ import { UserComponent } from './user/user.component';
 import { AddProductsComponent } from './addproducts/addproducts.component';
 import { EditComponent } from './edit/edit.component';
 import { GoogleChartsModule } from 'angular-google-charts';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InterceptorService } from './interceptor.service';
 
 
 @NgModule({
@@ -65,8 +66,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     GoogleChartsModule.forRoot(),
     HttpClientModule,
     ToastrModule.forRoot(),
+
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:InterceptorService,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

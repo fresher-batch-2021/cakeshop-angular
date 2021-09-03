@@ -27,6 +27,8 @@ export class EditComponent implements OnInit {
 
   ngOnInit(): void {
     this.editForm=this.fb.group({
+      _id:new FormControl("",Validators.required),//we need get the id and rev ,then only you can change the  
+      _rev:new FormControl("",Validators.required),
       productName:new FormControl("",Validators.required),
       imageUrl:new FormControl("",Validators.required),
       price:new FormControl("",Validators.required),
@@ -57,8 +59,7 @@ export class EditComponent implements OnInit {
 
 
     try {
-      // this.validator.ValidateName(this.product.productName, "Enter your name")
-      // console.log(this.product)
+      
       let productObj = this.editForm.value;
       console.log(productObj);
       this.productService.updateProduct(productObj)

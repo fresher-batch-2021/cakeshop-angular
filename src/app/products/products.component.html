@@ -8,6 +8,7 @@
             <td>Image</td>
             <td>Product Name</td>
             <td>Price</td>
+            <td>Quantity</td>
             <td>Edit</td>
             <td>Delete</td>
         </tr>
@@ -24,6 +25,7 @@
 
             <td>{{cake.productName}}</td>
             <td>{{cake.price}}</td>
+            <td>{{cake.quantity}}</td>
             <td><button class="btn btn-warning" type="button"><a routerLink='../edit/{{cake._id}}'>Edit</a></button></td>
             <td><button class="btn btn-danger" (click)="delete(cake._id,cake._rev)">Delete Cakes</button></td>
 

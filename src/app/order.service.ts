@@ -2,34 +2,42 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 
+import { environment } from 'src/environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class OrderService {
-
-  dbUsername = "apikey-v2-237a9fx60g51gyopiewwx5pb339t2r1xw085fzt3skgx";
-  dbPassword = "85e4a7e36372ac1e47c80f4b81a78d62";
-  basicAuth = "Basic " + btoa(this.dbUsername + ":" + this.dbPassword);
-  myUrl="https://99560248-15e7-4158-bfde-3c13e3ebf4e9-bluemix.cloudantnosqldb.appdomain.cloud/cakeshop_orders/";
-
-  constructor(private http:HttpClient) { }
-  getAllOrders()
-  {
-    const url=this.myUrl+"_all_docs?include_docs=true";
-    return this.http.get(url,{headers:{authorization:this.basicAuth}});
-  }
   
-  getOrder(id:string)
-  {
-    const url=this.myUrl+id;
-    return this.http.get(url,{headers:{authorization:this.basicAuth}});
-}
+  myUrl: any;
+  
+  headers: any;
+  collection: string;
 
 
-updateOrder(orderObj:string)
-  {
-    const url=this.myUrl+orderObj;
-    return this.http.get(url,{headers:{authorization:this.basicAuth}});
-}
+
+  constructor(private http: HttpClient) {
+    this.collection="cakeshop_orders"
+   
+    this.myUrl = environment.myUrl;
+    
+
+  }
+  getAllOrders() {
+    const url = this.myUrl + "cakeshop_orders/_all_docs?include_docs=true";
+    return this.http.get(url);
+  }
+
+  getOrder(id: string) {
+    const url = this.myUrl +this.collection+ id;
+    return this.http.get(url);
+  }
+
+
+  updateOrder(orderObj: string) {
+    const url = this.myUrl +this.collection+ orderObj;
+    return this.http.get(url);
+  }
 
 }

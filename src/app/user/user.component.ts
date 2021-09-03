@@ -22,11 +22,7 @@ allUsers()
 {
  try
  {
-   
-    
-     
-   
-   this.userService.userData().subscribe((res:any)=>
+      this.userService.userData().subscribe((res:any)=>
    {
      console.log(res.data);
      let data=res.rows;
@@ -36,15 +32,15 @@ allUsers()
 
    },(err:any)=>
    {
-   console.log(err.response.message);
+   console.log(err);
   });
 }
 
 catch{
   (err: any) => {
-    console.log(err.message);
-    alert(err.message.response);
-    alert("cant add products");
+    console.log(err);
+    // alert(err.message.response);
+    // alert("cant add products");
 }
  }
  

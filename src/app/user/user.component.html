@@ -12,8 +12,8 @@
 
         </tr>
     </thead>
-    <tbody *ngFor="let userObj of users ; let i=index">
-        <tr>
+    <tbody *ngIf="users">
+        <tr *ngFor="let userObj of users ; let i=index">
             <td>{{i+1}}</td>
             <td>{{userObj.name}}</td>
             <td>{{userObj.email}}</td>
