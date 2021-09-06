@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
       
       this.loginForm = this.fb.group({
         email : new FormControl("", [Validators.required]),
-        password : new FormControl('', [Validators.required,Validators.minLength(8)])
+        password : new FormControl('', [Validators.required])
       })
     }
 
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
 
       const role = "ADMIN";
       this.loginService.login(user.email, user.password, role).subscribe((res: any) => {
-        console.log(res.data);
+        console.log("kanna",res);
         let data = res.docs[0];
         console.log(data);
         localStorage.setItem('LOGGED_IN_USER', JSON.stringify(data))
@@ -55,12 +55,14 @@ export class LoginComponent implements OnInit {
       
         // console.log()
         let userStr = localStorage.getItem('LOGGED_IN_USER');
+        console.log(userStr)
         let user = userStr != null ? JSON.parse(userStr) : null;
         // let loginStatus=localStorage.setItem(loggedIn);
         if (user.role == "ADMIN") {
           this.toastr.success("Welcome Admin");
+          alert("login");
           setTimeout(() => {
-            this.router.navigate(['products']);
+            this.router.navigate(['/products']);
           }, 100);
          
         }

@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import axios from 'axios';
 import { environment } from 'src/environments/environment';
 
 
@@ -12,6 +11,8 @@ export class LoginService {
   myUrl: any;
   basicAuth: any;
   headers: any;
+
+  collectionName = "cakeshop_user"
 
   constructor(private http:HttpClient)
    {
@@ -30,6 +31,6 @@ export class LoginService {
    }
    
   };
-  return this.http.post(this.myUrl,loginObj);
+  return this.http.post(environment.myUrl+ this.collectionName+"/_find",loginObj);
   }
 }

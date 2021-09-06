@@ -30,7 +30,7 @@
                 </ul></td>
             <td>{{order.address}}</td>
             <td>{{order.date|date:"dd-MM-yyyy"}}</td>
-            <td>{{order.totalAmount}}</td>
+            <td>₹{{order.totalAmount}}.00</td>
             <td>{{order.payment}}</td>
             <td>{{order.status}}</td> 
             <td><button class="btn btn-success"(click)='update(order)' *ngIf="order.status!='CANCELLED'">Delivered</button></td>

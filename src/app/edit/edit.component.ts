@@ -27,7 +27,7 @@ export class EditComponent implements OnInit {
 
   ngOnInit(): void {
     this.editForm=this.fb.group({
-      _id:new FormControl("",Validators.required),//we need get the id and rev ,then only you can change the  
+      _id:new FormControl("",Validators.required),//we need get the id and rev ,then only you can change the product
       _rev:new FormControl("",Validators.required),
       productName:new FormControl("",Validators.required),
       imageUrl:new FormControl("",Validators.required),
@@ -49,8 +49,7 @@ export class EditComponent implements OnInit {
       console.log(res);
       
       this.product = res;
-      this.editForm.patchValue(this.product)
-      
+      this.editForm.patchValue(this.product)      
       console.log(res)
     });
   }
