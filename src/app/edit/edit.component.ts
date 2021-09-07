@@ -23,7 +23,7 @@ export class EditComponent implements OnInit {
   price: number = 0;
   imageUrl: string = "";
   category: string = "";
-  quantity: number = 0;
+
 
   ngOnInit(): void {
     this.editForm=this.fb.group({
@@ -33,7 +33,7 @@ export class EditComponent implements OnInit {
       imageUrl:new FormControl("",Validators.required),
       price:new FormControl("",Validators.required),
       category:new FormControl("",Validators.required),
-      quantity:new FormControl("",Validators.required)
+    
     })
     this.getProduct();
   }

@@ -1,0 +1,37 @@
+
+<app-adminheader></app-adminheader>
+<div class='cake-container'>
+    <h1 >Add Product Stock</h1> <br>
+
+
+    <form #editForm (ngSubmit)="edit()" *ngIf="product">
+
+
+            <label for="productName">Product Name:</label>
+            <label>{{product.productName}}</label>
+            
+            
+            <br>
+            <label  for="stockQuantity">Quantity:</label>
+            <input  type="number" [(ngModel)] = "stockQuantity"name="stockQuantity" id="stockQuantity" value=1  min=1
+            
+                autocomplete="off">
+
+                <br>
+            
+
+                <label>Select Type:</label>
+                <select id="type" [(ngModel)] = "type" required name="type">
+
+                    <option value="ADD"> Add Stock</option>
+                    <option value="RETURN">Return Stock</option>
+                </select>
+                <br>
+            <button type="submit">Submit</button>
+
+            
+
+       
+
+    </form>
+</div>    

@@ -32,7 +32,7 @@ getAllOrders()
 }
 status(productObj:any)
 {
-  const url=this.myUrl+"cakeshop_orders"+productObj._id;
+  const url=this.myUrl+"cakeshop_orders/"+productObj._id;
   return  this.http.put(url,productObj);
   
 }

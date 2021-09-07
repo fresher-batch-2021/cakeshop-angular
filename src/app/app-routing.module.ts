@@ -1,6 +1,7 @@
 import { componentFactoryName, } from "@angular/compiler";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { AddProductStockComponent } from "./add-product-stock/add-product-stock.component";
 import { AddProductsComponent } from "./addproducts/addproducts.component";
 import { AdminComponent } from "./admin/admin.component";
 import { AuthGuard } from "./auth.guard";
@@ -84,6 +85,9 @@ const routes: Routes = [
     },
     {
         path:'edit/:id',component:EditComponent,canActivate:[AuthGuard]
+    },
+    {
+        path:'addstock/:id',component:AddProductStockComponent,canActivate:[AuthGuard]
     },
      {
          path:'',redirectTo:'login',pathMatch:'full'

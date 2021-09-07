@@ -12,13 +12,14 @@
                 autocomplete="off">
     
             <label for="Price">Price:</label>
-            <input  type="number"formControlName="price" name="Price" id="price"
+            <input  type="number"formControlName="price" name="Price" id="price" 
                 autocomplete="off">
 
           
             <div>     
-                <label for="category">Category</label>         
-                  <select name="category" id="category" multiple formControlName="category" >
+                <label>Select Category:</label>
+                <select id="category" [(ngModel)] = "category" required name="category">
+
                     <option value="Anniversary">Anniversary</option>
                     <option value="WeddingCakes">Wedding Cake</option>
                     <option value="Birthday">Birthday</option>
@@ -27,10 +28,10 @@
                 </div>
 
 
-                <label  for="quantity">Quantity:</label>
+                <!-- <label  for="quantity">Quantity:</label>
             <input  type="number" formControlName = "quantity"name="quantity" id="quantity" 
-            
-                autocomplete="off">
+             
+                autocomplete="off">-->
 
             <div>
             <button type="submit" [disabled]="!editForm.valid">Update</button>

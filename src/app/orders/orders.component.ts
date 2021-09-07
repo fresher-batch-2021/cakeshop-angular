@@ -49,6 +49,14 @@ export class OrdersComponent implements OnInit {
       this.route.navigate(['/orders'])
      })
   }
+
+  getTotalQuantity(items:any){
+    let total = 0;
+    for(let item of items){
+      total+=item.quantity;
+    }
+    return total ;
+  }
   
 
 }

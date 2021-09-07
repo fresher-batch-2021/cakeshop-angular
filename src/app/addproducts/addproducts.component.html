@@ -16,10 +16,15 @@
             <input type="text" name="price" id="price" [(ngModel)]="price"> <br>
             <label for="image">Images</label>
             <input type="file" (change)="onFileUpload($event)"name="image" id="image" [(ngModel)]="imageUrl"> <br>
-            <label for="category">Category</label>
-            <input type="text" name="category" id="category" [(ngModel)]="category">
-            <label for="quantity">ProductQuantity</label>
-            <input type="text" name="quantity" id="quantity" [(ngModel)]="quantity">
+            <label>Select Category:</label>
+                <select id="category" [(ngModel)] = "category" required name="category">
+                    <option >Birthday</option>
+                    <option >Anniversary</option>
+                    <option >Wedding Cakes</option>
+                    <option >Lovable One</option>
+                </select> <br>
+            <!-- <label for="quantity">ProductQuantity</label>
+            <input type="text" name="quantity" id="quantity" [(ngModel)]="quantity"> --> 
 
             <button type="button" (click)='addProduct()'>Add Product</button>
         

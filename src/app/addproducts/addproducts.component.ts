@@ -15,7 +15,7 @@ export class AddProductsComponent implements OnInit {
 price:number=0;
 imageUrl:any;
 category:string="";
-quantity:number=0;
+
 
 
   ngOnInit(): void {
@@ -30,7 +30,7 @@ quantity:number=0;
     price: 0,
     imageUrl :"",
     category:"",
-    quantity: 0
+    
   }
   
 
@@ -41,7 +41,7 @@ quantity:number=0;
    let price=this.price;
    let imageUrl=this.imageUrl;
    let category=this.category;
-   let quantity=this.quantity;
+  
    
    try
    {
@@ -50,8 +50,7 @@ quantity:number=0;
        productName:name,
        price:price,
        imageUrl:imageUrl,
-       category:category,
-       quantity:quantity
+       category:category
      };
      
      this.productService.addDatas(productObj)

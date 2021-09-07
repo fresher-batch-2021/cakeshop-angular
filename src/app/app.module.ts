@@ -30,6 +30,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InterceptorService } from './interceptor.service';
+import { AddProductStockComponent } from './add-product-stock/add-product-stock.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { InterceptorService } from './interceptor.service';
     OrdersComponent,
     UserComponent,
     AddProductsComponent,
-    EditComponent
+    EditComponent,
+    AddProductStockComponent
   ],
   imports: [
     BrowserModule,
