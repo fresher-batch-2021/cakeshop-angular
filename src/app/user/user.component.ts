@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { UserService } from '../user.service';
 
 @Component({
@@ -12,9 +13,10 @@ export class UserComponent implements OnInit {
   users:any;
   id:any;
   rev:any;
-  constructor(private userService:UserService,private route:Router) { }
+  constructor(private userService:UserService,private route:Router,private spinner:NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.allUsers();
   }
 
@@ -28,6 +30,9 @@ allUsers()
      let data=res.rows;
      let allUsers =data.map((obj:any)=>obj.doc);
      this.users = allUsers.filter( (obj:any)=> obj.role=='USER')
+     setTimeout(() => {
+       this.spinner.hide();
+     }, 1500);
 
 
    },(err:any)=>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { OrderService } from '../order.service';
 import * as _ from 'lodash';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,10 +11,10 @@ import * as _ from 'lodash';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private adminService: AdminService, private OrderService: OrderService) { }
+  constructor(private adminService: AdminService, private OrderService: OrderService,private spinner:NgxSpinnerService) { }
 
   ngOnInit(): void {
-    // this.dashBoard();
+    this.spinner.show();
     this.orderChart();
   }
   orders: any;
@@ -66,7 +67,9 @@ export class DashboardComponent implements OnInit {
     this.OrderService.getAllOrders().subscribe((res: any) => {
       let orders = res.rows.map ((obj:any)=> obj.doc);
       console.table(orders);
-      
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 1500);
       this.prepareRevenueChartData(orders);
       
     });

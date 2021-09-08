@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { ProductService } from '../product.service';
 
@@ -9,11 +10,12 @@ import { ProductService } from '../product.service';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private productService: ProductService,private toastr:ToastrService) { }
+  constructor(private productService: ProductService,private toastr:ToastrService,private spinner:NgxSpinnerService) { }
 
   cakes: any;
 
   ngOnInit(): void {
+    this.spinner.show();
     this.listAllProducts();
   }
 
@@ -24,6 +26,10 @@ export class ProductsComponent implements OnInit {
       console.table(datas);
       let productData = datas.map((obj: any) => obj.doc);
       this.cakes = productData;
+      setTimeout(() => {
+        this.spinner.hide()
+      }, 1500)
+      console.log(productData);     
 
     });
   }
@@ -36,7 +42,7 @@ export class ProductsComponent implements OnInit {
         setTimeout(function()
         {
           window.location.reload();
-        },3000);
+        },2000);
         
       },(err:any) => {
         console.log(err.message.response);

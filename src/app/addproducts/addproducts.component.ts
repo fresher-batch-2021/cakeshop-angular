@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ValidationService } from '../validation.service';
 import { ProductService } from '../product.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-addproducts',
@@ -10,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddProductsComponent implements OnInit {
 
-  constructor(private validator:ValidationService ,private productService:ProductService,private toastr:ToastrService) { }
+  constructor(private validator:ValidationService ,private productService:ProductService,private toastr:ToastrService,private spinner:NgxSpinnerService) { }
   productName:string="";
 price:number=0;
 imageUrl:any;
@@ -19,6 +20,12 @@ category:string="";
 
 
   ngOnInit(): void {
+    this.spinner.show();
+    
+    setTimeout(() => {
+      this.spinner.hide()
+    }, 1500)
+
   }
   onFileUpload(event:any)
   {
@@ -37,6 +44,7 @@ category:string="";
 
   addProduct()
   {
+    this.spinner.show();
    let name=this.productName;
    let price=this.price;
    let imageUrl=this.imageUrl;
@@ -45,6 +53,7 @@ category:string="";
    
    try
    {
+
      this.validator.ValidateName(name,"Enter your name")
      let productObj:any={
        productName:name,
@@ -57,10 +66,15 @@ category:string="";
      .subscribe((res:any)=>
       {
         let data=res.data;
+        
+          this.spinner.hide()
+        
         console.log(data);
         this.toastr.success("Item is Added ");
+       
      },(err:any)=>
       {
+        this.spinner.hide()
         console.log(err.response.message);
         this.toastr.error("Item is not Added ");
 

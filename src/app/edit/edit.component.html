@@ -1,4 +1,4 @@
-<app-adminheader></app-adminheader>
+<app-common>
 <div class='cake-container'>
     <h1 >Edit Cakes</h1> <br>
 
@@ -28,15 +28,15 @@
                 </div>
 
 
-                <!-- <label  for="quantity">Quantity:</label>
-            <input  type="number" formControlName = "quantity"name="quantity" id="quantity" 
-             
-                autocomplete="off">-->
-
             <div>
             <button type="submit" [disabled]="!editForm.valid">Update</button>
 
         </div>
 
     </form>
+    </div>
+</app-common>
+
+
+    <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
     

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from '../admin.service';
 
@@ -11,9 +12,10 @@ import { AdminService } from '../admin.service';
 
 export class OrdersComponent implements OnInit {
   orders: any;
-  constructor(private Adminservice: AdminService,private route:Router,private toastr:ToastrService) { }
+  constructor(private Adminservice: AdminService,private route:Router,private toastr:ToastrService,private spinner:NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.order();
   }
   order() {
@@ -24,6 +26,9 @@ export class OrdersComponent implements OnInit {
         let value = datas.map((obj: any) => obj.doc);
         console.log(this.orders);
         this.orders = value;
+        setTimeout(()=>{
+          this.spinner.hide()
+        },1000)
         console.log(value);
 
       },(err: any) => {

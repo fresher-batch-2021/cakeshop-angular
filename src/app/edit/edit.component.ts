@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormControlName, FormGroup, Validator, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { ProductService } from '../product.service';
 import { ValidationService } from '../validation.service';
@@ -15,7 +16,7 @@ export class EditComponent implements OnInit {
   editForm! : FormGroup
 
   id: string;
-  constructor(private route: ActivatedRoute, private validator: ValidationService, private productService: ProductService, private toastr: ToastrService,private fb:FormBuilder) {
+  constructor(private route: ActivatedRoute, private validator: ValidationService, private productService: ProductService, private toastr: ToastrService,private fb:FormBuilder,private spinner:NgxSpinnerService) {
     this.id = this.route.snapshot.params["id"];
    
   }
@@ -26,6 +27,7 @@ export class EditComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.spinner.show();
     this.editForm=this.fb.group({
       _id:new FormControl("",Validators.required),//we need get the id and rev ,then only you can change the product
       _rev:new FormControl("",Validators.required),
@@ -49,7 +51,10 @@ export class EditComponent implements OnInit {
       console.log(res);
       
       this.product = res;
-      this.editForm.patchValue(this.product)      
+      this.editForm.patchValue(this.product)  
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 2000);    
       console.log(res)
     });
   }

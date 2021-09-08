@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinner, NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { ProductService } from '../product.service';
 import { ValidationService } from '../validation.service';
@@ -17,18 +18,19 @@ export class AddProductStockComponent implements OnInit {
   
 
   id: string;
-  constructor(private route: ActivatedRoute, private router:Router, private validator: ValidationService, private productService: ProductService, private toastr: ToastrService) {
+  constructor(private route: ActivatedRoute, private router:Router, private validator: ValidationService, private productService: ProductService, private toastr: ToastrService,private spinner:NgxSpinnerService) {
     this.id = this.route.snapshot.params["id"];
    
   }
   productName: string = "";
-  price: number = 0;
+  
   imageUrl: string = "";
-  category: string = "";
+
   quantity: number = 0;
   ngOnInit(): void {
-    
+   
   this.getProduct();
+  this.spinner.show();
 }
 
 onFileUpload(event: any) {
@@ -40,7 +42,9 @@ product: any;
 getProduct() {
   this.productService.getProduct(this.id).subscribe((res: any) => {
     console.log(res);
-    
+    setTimeout(()=>{
+      this.spinner.hide()
+    },1500)
     this.product = res;
       
     console.log(res)

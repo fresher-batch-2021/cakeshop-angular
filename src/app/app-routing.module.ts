@@ -22,6 +22,7 @@ import { PaymentComponent } from "./payment/payment.component";
 import { PrivacyComponent } from "./privacy/privacy.component";
 import { ProductsComponent } from "./products/products.component";
 import { RegisterComponent } from "./register/register.component";
+import { RoleGuard } from "./role.guard";
 import { UserComponent } from "./user/user.component";
 
 
@@ -66,28 +67,28 @@ const routes: Routes = [
          path:'adminheader',component:AdminComponent
      },
      {
-         path:'user',component:UserComponent,canActivate:[AuthGuard]
+         path:'user',component:UserComponent,canActivate:[AuthGuard,RoleGuard]
      },
      {
-         path:'orders',component:OrdersComponent,canActivate:[AuthGuard]
+         path:'orders',component:OrdersComponent,canActivate:[AuthGuard,RoleGuard]
      },
      {
-         path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]
+         path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard,RoleGuard]
      },
      {
          path:'header',component:HeaderComponent
      },
      {
-         path:'products',component:ProductsComponent,canActivate:[AuthGuard]
+         path:'products',component:ProductsComponent,canActivate:[AuthGuard,RoleGuard]
      },
      {
-        path:'addProducts',component:AddProductsComponent ,canActivate:[AuthGuard]
+        path:'addProducts',component:AddProductsComponent ,canActivate:[AuthGuard,RoleGuard]
     },
     {
-        path:'edit/:id',component:EditComponent,canActivate:[AuthGuard]
+        path:'edit/:id',component:EditComponent,canActivate:[AuthGuard,RoleGuard]
     },
     {
-        path:'addstock/:id',component:AddProductStockComponent,canActivate:[AuthGuard]
+        path:'addstock/:id',component:AddProductStockComponent,canActivate:[AuthGuard,RoleGuard]
     },
      {
          path:'',redirectTo:'login',pathMatch:'full'

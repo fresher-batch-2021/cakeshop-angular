@@ -31,6 +31,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InterceptorService } from './interceptor.service';
 import { AddProductStockComponent } from './add-product-stock/add-product-stock.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { CommonComponent } from './common/common.component';
+import { ErrorInterceptor } from './error.interceptor';
 
 
 @NgModule({
@@ -57,7 +61,8 @@ import { AddProductStockComponent } from './add-product-stock/add-product-stock.
     UserComponent,
     AddProductsComponent,
     EditComponent,
-    AddProductStockComponent
+    AddProductStockComponent,
+    CommonComponent
   ],
   imports: [
     BrowserModule,
@@ -67,10 +72,15 @@ import { AddProductStockComponent } from './add-product-stock/add-product-stock.
     ReactiveFormsModule,
     GoogleChartsModule.forRoot(),
     HttpClientModule,
+    NgxSpinnerModule,
     ToastrModule.forRoot(),
+    
 
   ],
-  providers: [{provide:HTTP_INTERCEPTORS,useClass:InterceptorService,multi:true}],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:InterceptorService,multi:true},
+    {provide:HTTP_INTERCEPTORS,useClass:ErrorInterceptor,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
