@@ -27,12 +27,12 @@
             <td>{{order.mobileNo}}</td>
             <td>
                 <ul>
-                    <li *ngFor="let item of order.products">{{item.name}}</li>
+                    <li *ngFor="let item of order.products">{{item.productName}}</li>
                 </ul></td>
                 <td>{{getTotalQuantity(order.products)}}
                     </td>
             <td>{{order.address}}</td>
-            <td>{{order.date|date:"dd-MM-yyyy"}}</td>
+            <td>{{order.orderDate|date:"dd-MM-yyyy"}}</td>
             <td>₹{{order.totalAmount}}.00</td>
             <td>{{order.payment}}</td>
             <td>{{order.status}}</td> 

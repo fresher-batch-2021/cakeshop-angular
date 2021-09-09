@@ -65,15 +65,15 @@ import { ErrorInterceptor } from './error.interceptor';
     CommonComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
+    BrowserModule,  
     BrowserAnimationsModule,
-    AppRoutingModule,
+    FormsModule,    
     ReactiveFormsModule,
     GoogleChartsModule.forRoot(),
     HttpClientModule,
     NgxSpinnerModule,
     ToastrModule.forRoot(),
+    AppRoutingModule,
     
 
   ],

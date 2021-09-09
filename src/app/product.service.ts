@@ -20,7 +20,7 @@ this.myUrl=environment.myUrl;
   addDatas(productObj:any)
   {
     
-    const url=this.myUrl+"cakeshop_cakes/";
+    const url=this.myUrl+"cakeshop_cakes";
     return this.http.post(url,productObj);
   }
 

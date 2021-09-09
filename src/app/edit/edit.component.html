@@ -18,7 +18,7 @@
           
             <div>     
                 <label>Select Category:</label>
-                <select id="category" [(ngModel)] = "category" required name="category">
+                <select id="category" formControlName= "category" required name="category">
 
                     <option value="Anniversary">Anniversary</option>
                     <option value="WeddingCakes">Wedding Cake</option>
@@ -38,5 +38,5 @@
 </app-common>
 
 
-    <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+    <!-- <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner> -->
     
