@@ -16,6 +16,9 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide()
+    }, 1500)
     this.listAllProducts();
   }
 
@@ -26,9 +29,7 @@ export class ProductsComponent implements OnInit {
       console.table(datas);
       let productData = datas.map((obj: any) => obj.doc);
       this.cakes = productData;
-      setTimeout(() => {
-        this.spinner.hide()
-      }, 1500)
+     
       console.log(productData);     
 
     });

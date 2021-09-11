@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgxSpinner, NgxSpinnerService } from 'ngx-spinner';
+import {  NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { ProductService } from '../product.service';
 import { ValidationService } from '../validation.service';
@@ -11,10 +10,7 @@ import { ValidationService } from '../validation.service';
   templateUrl: './add-product-stock.component.html',
   styleUrls: ['./add-product-stock.component.css']
 })
-export class AddProductStockComponent implements OnInit {
-
-  
-  
+export class AddProductStockComponent implements OnInit { 
   
 
   id: string;

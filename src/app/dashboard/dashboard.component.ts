@@ -40,7 +40,7 @@ export class DashboardComponent implements OnInit {
 
   prepareRevenueChartData(orders:any){
     //group by date
-    let salesData = _.groupBy(orders, 'date');
+    let salesData = _.groupBy(orders, 'orderDate');
       console.table(salesData)
       let keys = Object.keys(salesData);
       console.table('keys',keys);
