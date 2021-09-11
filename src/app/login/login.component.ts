@@ -1,12 +1,10 @@
-import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import axios from 'axios';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { LoginService } from '../login.service';
-import { ValidationService } from '../validation.service';
+
 
 
 @Component({
@@ -31,13 +29,14 @@ export class LoginComponent implements OnInit {
   user: any;
   ngOnInit(): void {
     // this.spinner.show();
-    let userStr = localStorage.getItem('LOGGED_IN_USER');
-    this.user = userStr != null ? JSON.parse(userStr) : null;
-    console.log(this.user)
+    // let userStr = localStorage.getItem('LOGGED_IN_USER');
+    // this.user = userStr != null ? JSON.parse(userStr) : null;
+    // console.log(this.user)
 
-    if(this.user != null ){
-      this.router.navigate(['products']);
-    }
+    // if(this.user != null ){
+    //   this.router.navigate(['products']);
+    // }
+    this.Login();
 
   }
 

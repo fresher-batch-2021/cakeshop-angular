@@ -11,6 +11,7 @@ export class AdminheaderComponent implements OnInit {
   constructor(private route:Router) { }
 
   ngOnInit(): void {
+    this.logout();
   }
   logout(){
     localStorage.clear()
