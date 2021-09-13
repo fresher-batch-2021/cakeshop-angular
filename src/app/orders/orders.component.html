@@ -10,6 +10,7 @@
             <td>Phone Number</td>
             <td>Cake Flavour</td>
             <td>NO.of Cakes</td>
+            <td>Decorations</td>
             <td>Address</td>
             <td>Ordered Date</td>
             <td>Total Amount</td>
@@ -29,11 +30,15 @@
                 <ul>
                     <li *ngFor="let item of order.products">{{item.productName}}</li>
                 </ul></td>
-                <td>{{getTotalQuantity(order.products)}}
-                    </td>
+             <td>{{getTotalQuantity(order.products)}}</td>
+             <td>
+                 <ul>
+                     <li>{{order.decorations}}</li>
+                 </ul>
+             </td>
             <td>{{order.address}}</td>
             <td>{{order.orderDate|date:"dd-MM-yyyy"}}</td>
-            <td>₹{{order.totalAmount}}.00</td>
+            <td>{{order.totalAmount}}.00</td>
             <td>{{order.payment}}</td>
             <td>{{order.status}}</td> 
             <td><button class="btn btn-success"(click)='update(order)' *ngIf="order.status!='CANCELLED'">Delivered</button></td>

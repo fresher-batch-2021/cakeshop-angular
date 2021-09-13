@@ -39,21 +39,22 @@ const routes: Routes = [
     {
         path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard, RoleGuard]
     },
-    {
-        path: 'products', component: ProductsComponent, canActivate: [AuthGuard, RoleGuard]
-    },
+    // {
+    //     path: 'products', component: ProductsComponent, canActivate: [AuthGuard, RoleGuard]
+    // },
     {
         path: 'addProducts', component: AddProductsComponent, canActivate: [AuthGuard, RoleGuard]
     },
-    {
-        path: 'edit/:id', component: EditComponent, canActivate: [AuthGuard, RoleGuard]
-    },
+    // {
+    //     path: 'edit/:id', component: EditComponent, canActivate: [AuthGuard, RoleGuard]
+    // },
     {
         path: 'addstock/:id', component: AddProductStockComponent, canActivate: [AuthGuard, RoleGuard]
     },
     {
         path: '', redirectTo: 'login', pathMatch: 'full'
-    }
+    },
+    {path:"products",loadChildren:()=>import('./productmodule/productmodule.module').then(m=>m.ProductmoduleModule)}
 
 ];
 

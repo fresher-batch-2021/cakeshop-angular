@@ -2,19 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { FooterComponent } from './footer/footer.component';
-
 import { AdminheaderComponent } from './adminheader/adminheader.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProductsComponent } from './products/products.component';
+// import { ProductsComponent } from './products/products.component';
 import { OrdersComponent } from './orders/orders.component';
 import { UserComponent } from './user/user.component';
 import { AddProductsComponent } from './addproducts/addproducts.component';
@@ -33,22 +29,18 @@ import { ErrorInterceptor } from './error.interceptor';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    
+    AppComponent,    
     RegisterComponent,
-    LoginComponent,
-  
-  
+    LoginComponent,  
     HomeComponent,
-   FooterComponent,
-  
+   FooterComponent,  
     AdminheaderComponent,
     DashboardComponent,
-    ProductsComponent,
+    // ProductsComponent,
     OrdersComponent,
     UserComponent,
     AddProductsComponent,
-    EditComponent,
+    // EditComponent,
     AddProductStockComponent,
     CommonComponent
   ],

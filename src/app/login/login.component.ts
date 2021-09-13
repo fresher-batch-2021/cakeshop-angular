@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
         if (userObj.role == "ADMIN") {
 
           this.toastr.success("Welcome Admin");
-          this.router.navigate(['/products']);
+          this.router.navigate(['/dashboard']);
           // setTimeout(() => {
           //   this.spinner.hide();
 
