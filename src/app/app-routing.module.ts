@@ -54,7 +54,9 @@ const routes: Routes = [
     {
         path: '', redirectTo: 'login', pathMatch: 'full'
     },
-    {path:"products",loadChildren:()=>import('./productmodule/productmodule.module').then(m=>m.ProductmoduleModule)}
+    {
+        path:"products",loadChildren:()=>import('./productmodule/productmodule.module').then(m=>m.ProductmoduleModule)
+    }
 
 ];
 

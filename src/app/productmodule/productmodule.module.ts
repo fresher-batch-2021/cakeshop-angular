@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ThemeModule } from '../theme/theme.module';
 
 
 @NgModule({
@@ -17,10 +18,11 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   [
     ProductsComponent,
     EditComponent,
-    // AddProductStockComponent
+    AddProductStockComponent
   ],
   imports: [
     CommonModule,
+    ThemeModule,
     ProductmoduleRoutingModule,
     FormsModule,    
     ReactiveFormsModule,
