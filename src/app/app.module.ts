@@ -7,7 +7,6 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
-import { AdminheaderComponent } from './adminheader/adminheader.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { OrdersComponent } from './orders/orders.component';
 import { UserComponent } from './user/user.component';
@@ -22,6 +21,9 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { CommonComponent } from './common/common.component';
 import { ErrorInterceptor } from './error.interceptor';
 import { ThemeModule } from './theme/theme.module';
+import { SharedModule } from './shared/shared.module';
+import { ElementrefDirective } from './elementref.directive';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -30,25 +32,25 @@ import { ThemeModule } from './theme/theme.module';
     RegisterComponent,
     LoginComponent,  
     HomeComponent,
-    FooterComponent,      
+    FooterComponent,  
+    
     DashboardComponent,
     OrdersComponent,
     UserComponent,
     AddProductsComponent,    
-    CommonComponent
+    CommonComponent, ElementrefDirective
   ],
   imports: [
-    BrowserModule,  
+    BrowserModule,
+    SharedModule,  
     BrowserAnimationsModule,
     ThemeModule,
-    FormsModule,        
-    ReactiveFormsModule,
-    GoogleChartsModule.forRoot(),
-    HttpClientModule,
     NgxSpinnerModule,
-    ToastrModule.forRoot(),
+    FormsModule,           
+    ReactiveFormsModule,
+    GoogleChartsModule.forRoot(),   
     AppRoutingModule,
-    
+    DataTablesModule   
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

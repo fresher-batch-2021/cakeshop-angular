@@ -7,15 +7,23 @@ import { ProductsComponent } from '../products/products.component';
 import { RoleGuard } from '../role.guard';
 
 const routes: Routes = [
-  {path:'',component:ProductsComponent,canActivate:[AuthGuard,RoleGuard] },
-  {
-    path: 'edit/:id', component: EditComponent, canActivate: [AuthGuard, RoleGuard]
-  },
-    {
-      path: 'addstock/:id', component: AddProductStockComponent, canActivate: [AuthGuard, RoleGuard]
- },
-];
+   {
+     path:'',component:ProductsComponent,canActivate:[AuthGuard,RoleGuard]   
+},
+  // {
+  //   path: 'edit/:id', component: EditComponent, canActivate: [AuthGuard, RoleGuard]
+  // },
+  //  
+//    {
+//       path: 'addstock/:id', component: AddProductStockComponent, canActivate: [AuthGuard, RoleGuard]
+//  },
 
+
+{
+  path:":id",children : [{path:"edit",component:EditComponent},{path:"addstock",component:AddProductStockComponent}]
+}
+
+];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

@@ -15,8 +15,7 @@ export class RoleGuard implements CanActivate {
       console.log(roleStr);
       let user=roleStr!=null?JSON.parse(roleStr):"";
     if(user.role=="ADMIN")    
-    {
-      
+    {      
       return true;
     }
     else

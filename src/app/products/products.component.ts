@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { Subject } from 'rxjs';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -9,12 +10,19 @@ import { ProductService } from '../product.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-
+  dtOptions:DataTables.Settings = {};
+  // dtTrigger: Subject<any> = new Subject<any>();
   constructor(private productService: ProductService,private toastr:ToastrService,private spinner:NgxSpinnerService) { }
 
   cakes: any;
+ 
 
   ngOnInit(): void {
+    this.dtOptions={
+      pagingType:'full_numbers',
+      pageLength: 5,
+      processing : true
+    }
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide()
@@ -29,7 +37,7 @@ export class ProductsComponent implements OnInit {
       console.table(datas);
       let productData = datas.map((obj: any) => obj.doc);
       this.cakes = productData;
-     
+    //  this.dtTrigger.next();
       console.log(productData);     
 
     });
