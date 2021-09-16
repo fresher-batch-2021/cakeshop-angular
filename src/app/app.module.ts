@@ -12,8 +12,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { UserComponent } from './user/user.component';
 import { AddProductsComponent } from './addproducts/addproducts.component';
 import { GoogleChartsModule } from 'angular-google-charts';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ToastrModule } from 'ngx-toastr';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InterceptorService } from './interceptor.service';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -23,7 +22,10 @@ import { ErrorInterceptor } from './error.interceptor';
 import { ThemeModule } from './theme/theme.module';
 import { SharedModule } from './shared/shared.module';
 import { ElementrefDirective } from './elementref.directive';
-import { DataTablesModule } from 'angular-datatables';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatButtonModule} from '@angular/material/button';
+
+
 
 
 @NgModule({
@@ -32,13 +34,12 @@ import { DataTablesModule } from 'angular-datatables';
     RegisterComponent,
     LoginComponent,  
     HomeComponent,
-    FooterComponent,  
-    
+    FooterComponent,     
     DashboardComponent,
     OrdersComponent,
     UserComponent,
     AddProductsComponent,    
-    CommonComponent, ElementrefDirective
+    CommonComponent
   ],
   imports: [
     BrowserModule,
@@ -49,8 +50,9 @@ import { DataTablesModule } from 'angular-datatables';
     FormsModule,           
     ReactiveFormsModule,
     GoogleChartsModule.forRoot(),   
-    AppRoutingModule,
-    DataTablesModule   
+    AppRoutingModule,  
+    MatSliderModule, 
+    MatButtonModule
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

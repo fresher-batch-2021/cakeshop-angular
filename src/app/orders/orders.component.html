@@ -1,7 +1,7 @@
 <app-adminheader></app-adminheader>
 
 <table class="table-content">
-    <caption>CUSTOMER ORDER DETIALS</caption>
+    <caption>CUSTOMER ORDER DETAILS</caption>
     <thead>
         <tr>
             <td>No.</td>
@@ -41,7 +41,7 @@
             <td>{{order.totalAmount}}.00</td>
             <td>{{order.payment}}</td>
             <td>{{order.status}}</td> 
-            <td><button class="btn btn-success"(click)='update(order)' *ngIf="order.status!='CANCELLED'">Delivered</button></td>
+            <td><button mat-raised-button color="primary" class="order" (click)='update(order)' *ngIf="order.status!='CANCELLED'">Delivered</button></td>
             
             
         </tr>

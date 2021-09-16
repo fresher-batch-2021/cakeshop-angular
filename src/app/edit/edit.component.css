@@ -1,7 +1,7 @@
 .cake-container
 {
     border: solid;
-    margin: 80px 400px 0px 400px;
+    margin: 180px 400px 0px 400px;
     padding: 50px 0px 40px 80px;
     background-color: #f0efeb;    
 }
@@ -15,4 +15,14 @@
     width: 50%;
     box-sizing: border-box; 
     margin-bottom: 20px;
+}
+.btn-primary
+{
+    
+    padding: 5px;
+    border: none;    
+    background-color: green;
+    border-radius: 5px;
+    border-color: #3F51B5;
+    /* box-shadow: 3px 3px 3px #3F51B5; */
 }

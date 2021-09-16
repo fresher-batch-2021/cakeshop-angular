@@ -4,7 +4,7 @@ export class user
      name!:string;
      email!:string;
 }
-export class datatype
+export class Product
 {
     _id!:string;
     _rev!:string;
@@ -18,16 +18,16 @@ export class datatype
     user!:user;
     products!:[];
 
-    setdata(datatypeData:any)
+    setdata(_productData:any)
     {
-        this.productName = datatypeData.productName;
-        this.price = datatypeData.price;
-        this.quantity=datatypeData.quantity;
-        this.category=datatypeData.category;
-        this.imageUrl=datatypeData.imageUrl;
-        this.description=datatypeData.description;
-        this.totalAmount=datatypeData.totalAmount;
-        this.user=datatypeData.user;
-        this.products=datatypeData.products;
+        this.productName = _productData.productName;
+        this.price = _productData.price;
+        this.quantity=_productData.quantity;
+        this.category=_productData.category;
+        this.imageUrl=_productData.imageUrl;
+        this.description=_productData.description;
+        this.totalAmount=_productData.totalAmount;
+        this.user=_productData.user;
+        this.products=_productData.products;
     }
 }

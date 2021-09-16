@@ -1,5 +1,5 @@
     .table-content {
-    margin: 40px auto;
+    margin: 150px 20px;
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 75%;
@@ -32,3 +32,6 @@ ul
     list-style-type: none;
 }
 
+.order {
+    z-index: -100;
+}

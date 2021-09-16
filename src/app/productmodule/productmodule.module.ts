@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ProductmoduleRoutingModule } from './productmodule-routing.module';
 import { ProductsComponent } from '../products/products.component';
 import { EditComponent } from '../edit/edit.component';
@@ -11,6 +10,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ThemeModule } from '../theme/theme.module';
+import {MatButtonModule} from '@angular/material/button';
+import { DataTablesModule } from 'angular-datatables';
+import { ElementrefDirective } from '../elementref.directive';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 @NgModule({
@@ -18,7 +22,8 @@ import { ThemeModule } from '../theme/theme.module';
   [
     ProductsComponent,
     EditComponent,
-    AddProductStockComponent
+    AddProductStockComponent,
+    ElementrefDirective
   ],
   imports: [
     CommonModule,
@@ -29,6 +34,12 @@ import { ThemeModule } from '../theme/theme.module';
     GoogleChartsModule.forRoot(),
     HttpClientModule,
     NgxSpinnerModule,
+    MatButtonModule,
+    DataTablesModule,
+    MatDialogModule
+    
+    
+    
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

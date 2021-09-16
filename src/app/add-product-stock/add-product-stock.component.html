@@ -6,7 +6,6 @@
 
     <form #editForm (ngSubmit)="edit()" *ngIf="product">
 
-
             <label for="productName">Product Name:</label>
             <label>{{product.productName}}</label>
             
@@ -27,7 +26,7 @@
                     <option value="RETURN">Return Stock</option>
                 </select>
                 <br>
-            <button type="submit">Submit</button>
+            <button class=" btn-primary"type="submit">Submit</button>
 
             
 

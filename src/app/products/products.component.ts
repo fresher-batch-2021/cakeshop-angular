@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-import { Subject } from 'rxjs';
 import { ProductService } from '../product.service';
+import{MatDialog} from '@angular/material/dialog';
+import { AddProductStockComponent } from '../add-product-stock/add-product-stock.component';
+import { AddProductsComponent } from '../addproducts/addproducts.component';
+import { EditComponent } from '../edit/edit.component';
 
 @Component({
   selector: 'app-products',
@@ -10,24 +13,31 @@ import { ProductService } from '../product.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
+  title = 'datatables';
   dtOptions:DataTables.Settings = {};
   // dtTrigger: Subject<any> = new Subject<any>();
-  constructor(private productService: ProductService,private toastr:ToastrService,private spinner:NgxSpinnerService) { }
+  constructor(private productService: ProductService,private toastr:ToastrService,private spinner:NgxSpinnerService,private dailog:MatDialog) { }
 
   cakes: any;
  
 
   ngOnInit(): void {
-    this.dtOptions={
-      pagingType:'full_numbers',
-      pageLength: 5,
-      processing : true
-    }
+    
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide()
     }, 1500)
+     this.dtOptions={
+       pagingType:'full_numbers',
+       pageLength: 5,
+       processing : true
+     };
     this.listAllProducts();
+  }
+  dialog()
+  {
+    this.dailog.open(EditComponent);
+
   }
 
 

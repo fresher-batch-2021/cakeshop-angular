@@ -3,6 +3,7 @@ import { ValidationService } from '../validation.service';
 import { ProductService } from '../product.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Product } from '../datatype';
 
 @Component({
   selector: 'app-addproducts',
@@ -11,10 +12,10 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class AddProductsComponent implements OnInit {
 
-  constructor(private validator:ValidationService ,private productService:ProductService,private toastr:ToastrService,private spinner:NgxSpinnerService) { }
+  constructor( private validator:ValidationService ,private productService:ProductService,private toastr:ToastrService,private spinner:NgxSpinnerService) { }
   productName:string="";
 price:number=0;
-imageUrl:any;
+imageUrl:string='';
 category:string="";
 
 
@@ -61,8 +62,9 @@ category:string="";
        imageUrl:imageUrl,
        category:category
      };
-     
-     this.productService.addDatas(productObj)
+     const Obj=new Product();
+     Obj.setdata(productObj)
+     this.productService.addDatas(Obj)
      .subscribe((res:any)=>
       {
         let data=res.data;
