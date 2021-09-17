@@ -40,7 +40,6 @@ category:string="";
     category:"",
     
   }
-  
 
 
   addProduct()
@@ -56,7 +55,7 @@ category:string="";
    {
 
      this.validator.ValidateName(name,"Enter your name")
-     let productObj:any={
+     let productObj ={
        productName:name,
        price:price,
        imageUrl:imageUrl,

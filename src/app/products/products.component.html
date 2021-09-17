@@ -30,7 +30,6 @@
             <td>{{cake.quantity}}</td>
             
             <td><button class="btn-warning"  type="button" ><a (click)="dialog()" routerLink='{{cake._id}}/edit'>Edit</a></button></td>
-            <!-- <button (click)="dialog()"> kjggvhjv</button> -->
             <td><button class="btn-primary" type="button" ><a routerLink='{{cake._id}}/addstock'>Add Stock</a></button></td>
             <td><button  class="btn-danger" type="button" (click)="delete(cake._id,cake._rev)">Delete Cakes</button></td>
            

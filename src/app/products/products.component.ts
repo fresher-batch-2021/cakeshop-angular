@@ -3,9 +3,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { ProductService } from '../product.service';
 import{MatDialog} from '@angular/material/dialog';
-import { AddProductStockComponent } from '../add-product-stock/add-product-stock.component';
-import { AddProductsComponent } from '../addproducts/addproducts.component';
 import { EditComponent } from '../edit/edit.component';
+import { Addproductdatatype } from '../addproductdatatype';
 
 @Component({
   selector: 'app-products',
@@ -18,7 +17,7 @@ export class ProductsComponent implements OnInit {
   // dtTrigger: Subject<any> = new Subject<any>();
   constructor(private productService: ProductService,private toastr:ToastrService,private spinner:NgxSpinnerService,private dailog:MatDialog) { }
 
-  cakes: any;
+  cakes!: Addproductdatatype[];
  
 
   ngOnInit(): void {
@@ -40,8 +39,9 @@ export class ProductsComponent implements OnInit {
 
   }
 
-
-  listAllProducts() {
+  listAllProducts() 
+  {
+    
     this.productService.getProducts().subscribe((res:any) => {
       let datas = res.rows;
       console.table(datas);
